@@ -13,3 +13,5 @@ People often know what they want to learn but not:
 
 Semantic retrieval + metadata + learning-level information
 can produce better learning paths than semantic similarity alone.
+
+[Next steps for this version](https://drive.google.com/file/d/1bQ2rPnr4xgu1v_5GnS9fvN_v7HOH1KKY/view?usp=drive_link)
