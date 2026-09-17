@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bookpath"
+version = "0.1.0"
+description = "Book discovery and recommendation tools"
+requires-python = ">=3.12"
+dependencies = [
+  "pandas",
+  "python-dotenv",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
