@@ -48,4 +48,6 @@ Podemos usar un CROSS-ENCODER?
 
 14. What type of feedback loop are we going to have? Clicks? Likes? Thumbs up/down?
 
+15. add AGENTS.md and pytest
+
 15. Read the syllabus of this course and see if we can learn/implement something https://maven.com/parlance-labs/evals?promoCode=hamel-dev here is the syllabus /next_steps/ai_evals_or_engineers_syllabus.txt
