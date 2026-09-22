@@ -31,7 +31,7 @@ are mocked; tests do not need Google credentials or submit real queries.
 
 The data-access pieces currently have separate responsibilities:
 
-- `bigquery.py`: `main()` downloads up to 10 records and saves a raw sample. If
+- `bigquery.py`: `main()` downloads up to 10 records by default and saves a raw sample. If
   the destination already exists, it skips the query and leaves the file unchanged.
   Calling `load_books()` directly still queries BigQuery every time.
 - `local_data.py`: saves DataFrames as Parquet files and reads them back without
@@ -63,7 +63,21 @@ write succeeds. Existing files are protected unless `overwrite=True` is given,
 and failed writes leave the previous file intact. Book identifiers must be columns;
 the DataFrame index is not saved. Local `data/` files are ignored by Git.
 
-The sample is only a check of the download/save/read workflow, not a complete or
-representative dataset. The next step is an explicit larger download to a separate
-`data/raw/books.parquet` file. Preprocessing can then read that raw local file and
-write a separate processed Parquet file without querying BigQuery again.
+To download up to 10,000 records to a separate file:
+
+```sh
+uv run python -m bookpath.bigquery --max-rows 10000 --output data/raw/books.parquet
+```
+
+Use both flags together to choose the row count and its destination. The command
+leaves the sample untouched and skips BigQuery if the chosen output already exists.
+Read the larger dataset locally with:
+
+```python
+books = read_books_from_parquet("data/raw/books.parquet")
+```
+
+Both downloads are ordered by `parent_asin`, not randomly sampled. They are not
+necessarily complete or representative datasets. SQL `LIMIT` and the CLI row
+limit bound returned records, not the bytes scanned or query cost. Preprocessing
+should read raw local data and write a separate processed Parquet file.

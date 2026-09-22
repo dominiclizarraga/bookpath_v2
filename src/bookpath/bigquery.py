@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import subprocess
@@ -12,9 +13,11 @@ from bookpath.local_data import read_books_from_parquet, save_books_to_parquet
 def load_books(
     project: str, dataset: str, table: str, location: str, max_rows: int = 10_000
 ) -> pd.DataFrame:
-    """Download the book table from BigQuery."""
+    """Download up to max_rows books from BigQuery, ordered by identifier."""
+    if max_rows <= 0:
+        raise ValueError("max_rows must be greater than zero")
     full_table = f"{project}.{dataset}.{table}"
-    query = f"SELECT * FROM `{full_table}` ORDER BY parent_asin"
+    query = f"SELECT * FROM `{full_table}` ORDER BY parent_asin LIMIT {max_rows}"
 
     try:
         result = subprocess.run(
@@ -37,11 +40,15 @@ def load_books(
         raise RuntimeError(f"BigQuery command failed: {message}") from error
 
 
-def main() -> None:
-    """Download and save a small raw sample; reuse it on subsequent runs."""
-    sample_path = Path("data/raw/books_sample.parquet")
-    if sample_path.exists():
-        print(f"Skipping BigQuery: {sample_path} already exists. Read it locally.")
+def main(
+    *, max_rows: int = 10, output_path: str | Path = "data/raw/books_sample.parquet"
+) -> None:
+    """Download raw books to a chosen file without replacing existing data."""
+    if max_rows <= 0:
+        raise ValueError("max_rows must be greater than zero")
+    output_path = Path(output_path)
+    if output_path.exists():
+        print(f"Skipping BigQuery: {output_path} already exists. Read it locally.")
         return
 
     load_dotenv()
@@ -65,16 +72,20 @@ def main() -> None:
         dataset=os.environ["BOOKPATH_BQ_DATASET"],
         table=os.environ["BOOKPATH_BQ_TABLE"],
         location=os.environ["BOOKPATH_BQ_LOCATION"],
-        max_rows=10,
+        max_rows=max_rows,
     )
     print(f"Loaded: {len(books)} books")
-    save_books_to_parquet(books, sample_path)
-    print(f"Saved raw sample to: {sample_path}")
+    save_books_to_parquet(books, output_path)
+    print(f"Saved raw books to: {output_path}")
 
-    saved_books = read_books_from_parquet(sample_path)
+    saved_books = read_books_from_parquet(output_path)
     print(f"Read back: {len(saved_books)} books")
     print(f"Columns: {', '.join(saved_books.columns)}")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Download raw books to local Parquet.")
+    parser.add_argument("--max-rows", type=int, default=10)
+    parser.add_argument("--output", type=Path, default=Path("data/raw/books_sample.parquet"))
+    arguments = parser.parse_args()
+    main(max_rows=arguments.max_rows, output_path=arguments.output)
