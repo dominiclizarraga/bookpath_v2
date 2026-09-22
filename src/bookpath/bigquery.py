@@ -1,9 +1,12 @@
 import json
 import os
 import subprocess
+from pathlib import Path
 
 import pandas as pd
 from dotenv import load_dotenv
+
+from bookpath.local_data import read_books_from_parquet, save_books_to_parquet
 
 
 def load_books(
@@ -35,6 +38,12 @@ def load_books(
 
 
 def main() -> None:
+    """Download and save a small raw sample; reuse it on subsequent runs."""
+    sample_path = Path("data/raw/books_sample.parquet")
+    if sample_path.exists():
+        print(f"Skipping BigQuery: {sample_path} already exists. Read it locally.")
+        return
+
     load_dotenv()
 
     variable_names = [
@@ -59,6 +68,12 @@ def main() -> None:
         max_rows=10,
     )
     print(f"Loaded: {len(books)} books")
+    save_books_to_parquet(books, sample_path)
+    print(f"Saved raw sample to: {sample_path}")
+
+    saved_books = read_books_from_parquet(sample_path)
+    print(f"Read back: {len(saved_books)} books")
+    print(f"Columns: {', '.join(saved_books.columns)}")
 
 
 if __name__ == "__main__":

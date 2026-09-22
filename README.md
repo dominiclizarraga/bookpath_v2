@@ -31,25 +31,30 @@ are mocked; tests do not need Google credentials or submit real queries.
 
 The data-access pieces currently have separate responsibilities:
 
-- `bigquery.py`: `main()` calls `load_books()` to download a DataFrame into memory.
-  Each invocation of that command sends a new query to BigQuery.
+- `bigquery.py`: `main()` downloads up to 10 records and saves a raw sample. If
+  the destination already exists, it skips the query and leaves the file unchanged.
+  Calling `load_books()` directly still queries BigQuery every time.
 - `local_data.py`: saves DataFrames as Parquet files and reads them back without
   contacting BigQuery. It does not clean or otherwise preprocess the data.
 
-Once a download has produced a `books` DataFrame, save it explicitly:
+From the repository root, download the initial sample:
 
-```python
-from bookpath.local_data import save_books_to_parquet
-
-save_books_to_parquet(books, "data/raw/books.parquet")
+```sh
+uv run python -m bookpath.bigquery
 ```
 
-For later exploration or preprocessing, read the local file:
+The first run requires your BigQuery CLI credentials and `BOOKPATH_GCP_PROJECT`,
+`BOOKPATH_BQ_DATASET`, `BOOKPATH_BQ_TABLE`, and `BOOKPATH_BQ_LOCATION` in the
+environment or `.env`. It saves `data/raw/books_sample.parquet`, reads it back,
+and prints the row count and column names. Subsequent runs stop before loading
+cloud configuration or querying BigQuery if that path exists.
+
+For later exploration or preprocessing, read the local sample:
 
 ```python
 from bookpath.local_data import read_books_from_parquet
 
-books = read_books_from_parquet("data/raw/books.parquet")
+books = read_books_from_parquet("data/raw/books_sample.parquet")
 ```
 
 Reading never downloads data. A missing file raises `FileNotFoundError`.
@@ -58,8 +63,7 @@ write succeeds. Existing files are protected unless `overwrite=True` is given,
 and failed writes leave the previous file intact. Book identifiers must be columns;
 the DataFrame index is not saved. Local `data/` files are ignored by Git.
 
-The existing `uv run python -m bookpath.bigquery` command still queries BigQuery
-and prints a ten-row sample; it is not yet wired to save a full dataset.
-The next step is to connect an explicit download to saving raw Parquet. After
-that, preprocessing can read the raw local file and write a separate processed
-Parquet file without querying BigQuery again.
+The sample is only a check of the download/save/read workflow, not a complete or
+representative dataset. The next step is an explicit larger download to a separate
+`data/raw/books.parquet` file. Preprocessing can then read that raw local file and
+write a separate processed Parquet file without querying BigQuery again.
