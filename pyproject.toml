@@ -9,6 +9,7 @@ description = "Book discovery and recommendation tools"
 requires-python = ">=3.12"
 dependencies = [
   "pandas",
+  "pyarrow>=25.0.1",
   "python-dotenv",
 ]
 
@@ -18,4 +19,5 @@ where = ["src"]
 [dependency-groups]
 dev = [
     "ipython>=9.17.1",
+    "pytest>=9.1.1",
 ]

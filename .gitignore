@@ -61,3 +61,6 @@ __pycache__/
 *.egg-info/
 .venv/
 .pytest_cache/
+
+# Local raw snapshots and processed datasets
+/data/
