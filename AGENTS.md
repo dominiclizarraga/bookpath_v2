@@ -9,6 +9,9 @@ meaningful evaluation, and maintainability.
 ## Engineering Principles
 
 - Follow Python conventions and PEP 8; use clear, intention-revealing names.
+- Prefer explicit names and straightforward control flow over compactness.
+  Keep Python idiomatic, and briefly explain unfamiliar Python constructs when
+  introducing them—the maintainer comes from Ruby.
 - Give each function, class, and module one clear responsibility.
 - Prefer small classes and methods. Aim for classes under 100 lines and methods
   under 5 logical lines, but prioritize coherent, readable code over line counts.

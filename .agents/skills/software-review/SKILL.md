@@ -14,6 +14,14 @@ Check where relevant:
 - File-write safety, configuration, dependency declarations, and lockfile consistency.
 - Tests of observable behavior, failure cases, and isolated external boundaries.
 
+For test readability:
+- Prefer one clearly named scenario per test, with visible setup, action, and assertions.
+- Split tests when boolean parameters introduce different setup or assertion branches.
+  Keep parametrization when only input values and expected results vary.
+- Allow multiple assertions that describe one behavior.
+- Accept small duplication when extracting fixtures or helpers would make the test
+  harder to follow.
+
 Run focused local checks when useful. Do not contact live services for a review.
 Treat line-count preferences as guidelines; identify practical consequences rather
 than enforcing style mechanically. Do not introduce tooling or edit code unless requested.
