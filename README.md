@@ -95,6 +95,11 @@ parsing, category coverage, and TOC counts. It ends
 before preprocessing and evaluation decisions. Findings and the stopping point
 are recorded in [docs/data.md](docs/data.md).
 
+Continue with [notebooks/02_toc_eda.ipynb](notebooks/02_toc_eda.ipynb) for deeper
+TOC exploration: source preservation, additional raw fields, ordering, hierarchy,
+pages, repeated text, lengths, and possible contents lists inside descriptions.
+Run it from the same `.venv` kernel; it reads the existing local Parquet.
+
 Notebook dependencies are development dependencies: `ipykernel` runs Python
 cells, `matplotlib` draws plots, and `nbclient` supports execution checks from
 a fresh kernel. Rerun the notebook to refresh any saved outputs.
