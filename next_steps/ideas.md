@@ -53,3 +53,7 @@ Podemos usar un CROSS-ENCODER?
 15. Read the syllabus of this course and see if we can learn/implement something https://maven.com/parlance-labs/evals?promoCode=hamel-dev here is the syllabus /next_steps/ai_evals_or_engineers_syllabus.txt
 
 16. add buttons for the user to submit feedback like: "show more finance books", "show less  Marketing books" we have 23 categories
+
+17. explore the techniques mentioned in book Natural Language Processing in action: A comparison of the syntax parsing accuracy of SpaCy (93%), SyntaxNet (94%), Stanford’s CoreNLP (90%), and others is available at https://spacy.io/docs/api/.
+
+18. 
