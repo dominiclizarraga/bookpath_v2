@@ -81,3 +81,20 @@ Both downloads are ordered by `parent_asin`, not randomly sampled. They are not
 necessarily complete or representative datasets. SQL `LIMIT` and the CLI row
 limit bound returned records, not the bytes scanned or query cost. Preprocessing
 should read raw local data and write a separate processed Parquet file.
+
+## Exploratory data analysis
+
+Run `uv sync`, then open
+[notebooks/01_raw_books_eda.ipynb](notebooks/01_raw_books_eda.ipynb) in VS Code.
+Choose **Select Kernel → Python Environments → .venv/bin/python**, then
+**Restart Kernel → Run All**. The notebook can run from the repository root
+or the `notebooks/` directory. It requires the existing `data/raw/books.parquet`.
+
+The notebook checks nulls, empty collections, repeated identifiers, numeric
+parsing, category coverage, and TOC counts. It ends
+before preprocessing and evaluation decisions. Findings and the stopping point
+are recorded in [docs/data.md](docs/data.md).
+
+Notebook dependencies are development dependencies: `ipykernel` runs Python
+cells, `matplotlib` draws plots, and `nbclient` supports execution checks from
+a fresh kernel. Rerun the notebook to refresh any saved outputs.
