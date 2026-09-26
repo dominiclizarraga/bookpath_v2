@@ -100,6 +100,28 @@ TOC exploration: source preservation, additional raw fields, ordering, hierarchy
 pages, repeated text, lengths, and possible contents lists inside descriptions.
 Run it from the same `.venv` kernel; it reads the existing local Parquet.
 
+## TOC feature preview
+
+Create the first processed TOC file from the saved raw snapshot:
+
+```sh
+uv run python -m bookpath.toc
+```
+
+This writes `data/processed/toc_features.parquet`, with one row per raw TOC item.
+It keeps source fields and review flags, and builds `feature_text` from chapter
+text plus a chapter subtitle when it adds information. It never downloads data
+or overwrites an existing output. Use `--input` and `--output` for other paths.
+
+Open [03_toc_features_preview.ipynb](notebooks/03_toc_features_preview.ipynb) with
+the `.venv` kernel and **Run All** to see *Never Split the Difference* before
+and after this step. The preview reads the saved processed file and verifies it
+against the raw snapshot. The feature has not been evaluated for retrieval yet.
+
+`build_toc_features(books)` in `src/bookpath/toc.py` builds the inspection table
+in memory. `prepare_toc_features(input_path, output_path)` handles local file
+reading and saving. The raw data remains unchanged; `data/` is not committed.
+
 Notebook dependencies are development dependencies: `ipykernel` runs Python
 cells, `matplotlib` draws plots, and `nbclient` supports execution checks from
 a fresh kernel. Rerun the notebook to refresh any saved outputs.

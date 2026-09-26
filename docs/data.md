@@ -504,11 +504,14 @@ Searching for phrases such as "table of contents" finds 23 Amazon descriptions,
 includes a TOC. A book can appear in more than one group, and our phrase search
 can miss chapter lists written differently. These matches need manual inspection.
 
-We have only inspected and counted the data. No entries were removed or merged,
-and no text features or chunks were created. The file checksum confirms that
-the saved raw Parquet is unchanged.
+The two EDA notebooks only inspect and count the data. They do not remove or
+merge entries or create text features. The separate first implementation below
+builds candidate text features. The saved raw Parquet remains unchanged.
 
-### Proposed TOC preprocessing strategy
+### TOC preprocessing strategy: first implementation
+
+Implemented in [src/bookpath/toc.py](../src/bookpath/toc.py). See the before/after
+examples in [03_toc_features_preview.ipynb](../notebooks/03_toc_features_preview.ipynb).
 
 **What:** Build a new, separate set of TOC entries from the local
 `raw_toc_json` column. It contains the same TOC as
@@ -523,9 +526,10 @@ more detail than `toc_entries`. Use `toc_entries` to check the new extraction.
   numbering, nesting, and page references. Keep `authors` and `description`
   for review before deciding whether they belong in recommendation text.
 - **Traceability:** Keep `parent_asin`, `ol_edition_key`, the original item
-  position, and the key used for its text. Flag empty, numeric-only, and
-  repeated items for review. Inspect possible extra TOCs in Amazon descriptions
-  separately before merging anything.
+  position, and the key used for its text. Keep each full source item in
+  `raw_item_json`, including unknown keys. Flag empty, numeric-only, and
+  repeated items for review. Possible extra TOCs in Amazon descriptions remain
+  a separate investigation; this implementation does not merge them.
 
 **Why:** The counts (140,446 from `title`, 759 from `value`, 161 from `label`,
 129 plain strings) tell us which formats to support. They do not tell us which
@@ -537,13 +541,52 @@ Any Room", which the current `toc_entries` leaves out.
 text, useful context, and a way to trace every entry back to the saved source.
 The raw file stays unchanged. Compare retrieval using the existing TOC text
 against text with the additional chapter information under an agreed evaluation
-plan before adopting it. This strategy is proposed, not yet implemented.
+plan before adopting it for recommendations.
 
-## Stop here: evaluation design before further development
+**First saved result:** `data/processed/toc_features.parquet`, created with:
 
-This pass stops at descriptive inspection. No processed dataset, train/test
-split, fitted transformation, imputation, feature selection, resampling,
-chunking, embeddings, or model evaluation has been created.
+```sh
+uv run python -m bookpath.toc
+```
+
+This file has **141,513 rows**, one per raw item across all 9,034 books, including
+18 items flagged `missing_text`. The 141,495 nonmissing `base_text` values
+reproduce the existing `toc_entries` text in order. All 16 chapter subtitles
+add text in this snapshot. There are 435 `numeric_only_text` flags and 2,916
+`repeated_text` flags; flagged rows are retained. Repeat comparison ignores case
+and repeated whitespace within the same book and marks every occurrence.
+
+For the first chapter of *Never Split the Difference* (`0062407805`):
+
+| Output column | Actual value |
+| --- | --- |
+| `base_text` | `The New Rules` |
+| `chapter_subtitle` | `How to Become the Smartest Person in Any Room` |
+| `feature_text` | `The New Rules: How to Become the Smartest Person in Any Room` |
+| `text_source` | `title` |
+| `raw_position` | `1` |
+| `subtitle_added` | `True` |
+
+`feature_text` trims outer whitespace and adds the subtitle with `: ` between
+the two parts. It avoids adding a subtitle whose whole word sequence already
+appears in the main text, ignoring case and punctuation. This is a simple text
+comparison, not a test of equivalent meaning. If only a chapter subtitle has
+text, it can supply `feature_text` on its own. Neither behavior changes the raw
+source item.
+
+Context columns include `book_title`, `label`, `level`, `page`, `entry_class`,
+`authors_json`, and `description_json`. They are retained for inspection and
+are not automatically joined into `feature_text`. The saved file also records
+`feature_version = "toc-v1"` and `source_sha256`, the raw file checksum.
+Existing outputs are protected from overwrite; choose another `--output` path
+to save a later experiment. No fitted preprocessing or embeddings are involved.
+
+## Evaluation design before choosing retrieval features
+
+The EDA notebooks remain descriptive. A separate candidate TOC feature dataset
+now exists for inspection. No train/test split, fitted transformation,
+resampling, embedding model, or ranking evaluation has been created. Its text
+rules still need evaluation before being adopted for recommendations.
 
 The full saved catalog has been inspected, so it is development evidence, not
 an untouched test set. Before using these observations to choose modeling or
