@@ -611,11 +611,62 @@ the source TOC is complete or belongs to the intended edition. Hierarchy-based
 text, automatic removal of repeated headings, and recovery of additional TOCs
 remain possible later improvements rather than prerequisites for this version.
 
-The next EDA will cover the Amazon `description` and `features` columns: whether
-they contain text, what the full values look like, and how much they overlap.
-The possible chapter lists found in section 8.2 of notebook 02 provide examples
-for that exploration. The next product milestone is a learning goal producing
-ranked books using the prepared text.
+The next EDA, [04_description_features_eda.ipynb](../notebooks/04_description_features_eda.ipynb),
+covers the Amazon `description` and `features` columns: whether they contain
+text, what the full values look like, and how much they overlap. The next product
+milestone is a learning goal producing ranked books using the prepared text.
+
+## Description and features: first EDA (2026-10-02)
+
+[Notebook 04](../notebooks/04_description_features_eda.ipynb) reads the same
+9,034 book records. These are separate Amazon columns containing arrays of
+text pieces: 253,557 pieces in `description` and 71,241 in `features`. All pieces
+are strings and none are blank, although some books have empty arrays.
+
+For inspection, pieces are trimmed and joined in their original order with line
+breaks. The joined values stay in memory; the raw arrays and file are unchanged.
+Here, **text present** means at least one nonblank piece, not a useful summary.
+
+| Text available | Book records | All records (%) |
+| --- | ---: | ---: |
+| Both `description` and `features` | 7,996 | 88.51 |
+| Only `features` | 995 | 11.01 |
+| Only `description` | 10 | 0.11 |
+| Neither | 33 | 0.37 |
+| **Total** | **9,034** | **100.00** |
+
+Thus `features` contains text for **8,991 books (99.52%)**, while `description`
+contains text for **8,006 (88.62%)**. Together they cover 9,001 books. Using
+`description` where `features` is empty adds text for 10 book records.
+
+For the default example, *Never Split the Difference* (`0062407805`), `features`
+is a sales summary, while `description` includes reviews, back-cover text, and
+author biographies. The notebook shows the first three pieces of each and
+provides expandable full values; readers can choose another ID or a repeatable
+random example. This example does not classify the content of every book.
+
+Among the **7,996 books with both texts**, 207 (2.59%) have the entire `features`
+text inside `description` after ignoring case and repeated whitespace. None
+have identical whole texts, and none have the whole `description` inside
+`features`. The remaining 7,789 can still share smaller passages or ideas; this
+is a whole-text substring check, not a measure of semantic similarity.
+
+Among nonempty values, the median joined length is approximately **1,278
+characters for `features`** and **2,776 for `description`**. Maximum lengths are
+22,496 and 300,981 respectively. These lengths include the inserted line breaks;
+they are not token counts. The shortest feature is just `"n"`, and the shortest
+description is `"About the Author"`, illustrating why presence alone does not
+establish usefulness. No length cutoff or automatic removal rule was applied.
+
+**Practical next step:** `features` is the first candidate for book-level text
+alongside the prepared TOC because of its coverage and shorter typical length.
+Keep `description` available as a fallback and possible extra source, with
+source names preserved. Whether either improves recommendations remains to be
+evaluated in the first working implementation. Possible chapter lists found in
+notebook 02 have not been extracted or merged.
+
+All 10 code cells in notebook 04 ran successfully. Coverage totals and the raw
+file's unchanged SHA-256 were checked. No processed dataset was written.
 
 ## Evaluation design before choosing retrieval features
 

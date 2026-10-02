@@ -125,3 +125,11 @@ reading and saving. The raw data remains unchanged; `data/` is not committed.
 Notebook dependencies are development dependencies: `ipykernel` runs Python
 cells, `matplotlib` draws plots, and `nbclient` supports execution checks from
 a fresh kernel. Rerun the notebook to refresh any saved outputs.
+
+## Description and features EDA
+
+Open [04_description_features_eda.ipynb](notebooks/04_description_features_eda.ipynb)
+to inspect the Amazon `description` and `features` columns in the same local
+snapshot. It shows a selectable book example, text coverage, overlap between
+the columns, and text lengths. Each section states its objective and conclusion.
+The notebook reads the raw file without changing it or creating processed data.
