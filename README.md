@@ -100,7 +100,7 @@ TOC exploration: source preservation, additional raw fields, ordering, hierarchy
 pages, repeated text, lengths, and possible contents lists inside descriptions.
 Run it from the same `.venv` kernel; it reads the existing local Parquet.
 
-## TOC feature preview
+## TOC preparation preview
 
 Create the first processed TOC file from the saved raw snapshot:
 
@@ -113,7 +113,7 @@ It keeps source fields and review flags, and builds `feature_text` from chapter
 text plus a chapter subtitle when it adds information. It never downloads data
 or overwrites an existing output. Use `--input` and `--output` for other paths.
 
-Open [03_toc_features_preview.ipynb](notebooks/03_toc_features_preview.ipynb) with
+Open [03_toc_preparation_preview.ipynb](notebooks/03_toc_preparation_preview.ipynb) with
 the `.venv` kernel and **Run All** to see *Never Split the Difference* before
 and after this step. The preview reads the saved processed file and verifies it
 against the raw snapshot. The feature has not been evaluated for retrieval yet.

@@ -502,16 +502,23 @@ for a New Reality"`.
 Searching for phrases such as "table of contents" finds 23 Amazon descriptions,
 22 Amazon feature lists, and 2 Open Library notes. Some only say that the book
 includes a TOC. A book can appear in more than one group, and our phrase search
-can miss chapter lists written differently. These matches need manual inspection.
+can miss chapter lists written differently. The Amazon matches need manual
+inspection before they can be counted as actual chapter lists.
 
-The two EDA notebooks only inspect and count the data. They do not remove or
+Both matched Open Library notes were read in full: `1465444270` identifies
+where a statement of responsibility was found, and `1944869891` identifies
+where an edition statement was found. Neither contains chapter titles. These
+two matches are therefore a lower priority for TOC recovery; this does not
+establish that all Open Library notes are unhelpful.
+
+Notebooks 01 and 02 only inspect and count the data. They do not remove or
 merge entries or create text features. The separate first implementation below
 builds candidate text features. The saved raw Parquet remains unchanged.
 
 ### TOC preprocessing strategy: first implementation
 
 Implemented in [src/bookpath/toc.py](../src/bookpath/toc.py). See the before/after
-examples in [03_toc_features_preview.ipynb](../notebooks/03_toc_features_preview.ipynb).
+examples in [03_toc_preparation_preview.ipynb](../notebooks/03_toc_preparation_preview.ipynb).
 
 **What:** Build a new, separate set of TOC entries from the local
 `raw_toc_json` column. It contains the same TOC as
@@ -580,6 +587,35 @@ are not automatically joined into `feature_text`. The saved file also records
 `feature_version = "toc-v1"` and `source_sha256`, the raw file checksum.
 Existing outputs are protected from overwrite; choose another `--output` path
 to save a later experiment. No fitted preprocessing or embeddings are involved.
+
+### TOC version 1 checkpoint (2026-10-02)
+
+The first TOC exploration and preparation are complete enough to use in a first
+recommendation implementation. Further TOC cleaning is deferred until a working
+recommendation baseline shows a concrete need for it.
+
+| Completed work | What it establishes |
+| --- | --- |
+| [02_toc_eda.ipynb](../notebooks/02_toc_eda.ipynb) | The saved TOC copies agree; the 18-item difference is explained; main text and selected metadata are preserved in order. Field coverage, hierarchy, page labels, repeated headings, and text lengths have been inspected. |
+| `src/bookpath/toc.py` and `data/processed/toc_features.parquet` | One traceable row per original item, with selected text plus a chapter subtitle when available. All 16 chapter subtitles across two book records add text; review flags retain unusual items for later inspection. |
+| [03_toc_preparation_preview.ipynb](../notebooks/03_toc_preparation_preview.ipynb) | A before/after preview of the prepared TOC text, with checks for text preservation, item positions, and source-file integrity. |
+
+Notebook 03 was renamed from `03_toc_features_preview.ipynb` to avoid confusion
+with the Amazon `features` column. Its input remains `raw_toc_json`; it does
+not explore the book-level `description` or `features` columns. The existing
+processed filename and `feature_text` output column keep their names.
+
+The current preparation is the version 1 candidate. It has not demonstrated
+better recommendations, and matching saved TOC copies does not establish that
+the source TOC is complete or belongs to the intended edition. Hierarchy-based
+text, automatic removal of repeated headings, and recovery of additional TOCs
+remain possible later improvements rather than prerequisites for this version.
+
+The next EDA will cover the Amazon `description` and `features` columns: whether
+they contain text, what the full values look like, and how much they overlap.
+The possible chapter lists found in section 8.2 of notebook 02 provide examples
+for that exploration. The next product milestone is a learning goal producing
+ranked books using the prepared text.
 
 ## Evaluation design before choosing retrieval features
 
