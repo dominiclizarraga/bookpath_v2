@@ -685,9 +685,17 @@ contains text for **8,006 (88.62%)**. Together they cover 9,001 books. Using
 
 For the default example, *Never Split the Difference* (`0062407805`), `features`
 is a sales summary, while `description` includes reviews, back-cover text, and
-author biographies. The notebook shows the first three pieces of each and
-provides expandable full values; readers can choose another ID or a repeatable
-random example. This example does not classify the content of every book.
+author biographies. Below the storage table, section 1 prints the first ten
+elements of each list for the selected book; shorter lists are shown in full.
+Section 2 provides expandable complete values for the same book. Readers can
+choose another ID or a repeatable random example. This example does not
+classify the content of every book.
+
+Section 3 shows a before/after example using that book's first three pieces
+from each column. The preview and the complete lists use the same joining
+function: trim each piece's ends, skip blanks, and keep the remaining pieces
+in order, separated by line breaks. `description` and `features` remain two
+separate strings in the inspection table; their source arrays stay intact.
 
 Among the **7,996 books with both texts**, 207 (2.59%) have the entire `features`
 text inside `description` after ignoring case and repeated whitespace. None
@@ -709,8 +717,13 @@ source names preserved. Whether either improves recommendations remains to be
 evaluated in the first working implementation. Possible chapter lists found in
 notebook 02 have not been extracted or merged.
 
-All 10 code cells in notebook 04 ran successfully. Coverage totals and the raw
-file's unchanged SHA-256 were checked. No processed dataset was written.
+All 11 code cells in notebook 04 ran successfully. The final validation rereads
+the local Parquet and checks the book IDs and every original piece in both
+columns, including order: all 324,798 pieces across 9,034 books match exactly.
+Coverage totals and the raw file's unchanged SHA-256 were also checked.
+The preservation check also rejected deliberately edited and reordered pieces
+in temporary copies of each column, even when their counts stayed the same.
+No processed dataset was written.
 
 ## Evaluation design before choosing retrieval features
 
