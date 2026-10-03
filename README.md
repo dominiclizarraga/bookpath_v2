@@ -114,9 +114,12 @@ text plus a chapter subtitle when it adds information. It never downloads data
 or overwrites an existing output. Use `--input` and `--output` for other paths.
 
 Open [03_toc_preparation_preview.ipynb](notebooks/03_toc_preparation_preview.ipynb) with
-the `.venv` kernel and **Run All** to see *Never Split the Difference* before
-and after this step. The preview reads the saved processed file and verifies it
-against the raw snapshot. The feature has not been evaluated for retrieval yet.
+the `.venv` kernel and **Run All** to see a selected book before and after this
+step. Section 2 picks a repeatable random book by default; change `random_seed`
+for another selection, or set `example_asin` to a specific ID. Sections 2–3 and
+their conclusions follow that book. The preview reads the saved processed file
+and verifies it against the raw snapshot. The prepared text has not been
+evaluated for retrieval yet.
 
 `build_toc_features(books)` in `src/bookpath/toc.py` builds the inspection table
 in memory. `prepare_toc_features(input_path, output_path)` handles local file
