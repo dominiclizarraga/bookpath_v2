@@ -438,7 +438,9 @@ contributes `"The New Rules"`. It will not contribute `"Chapter 1"` or
 `"How to Become the Smartest Person in Any Room"`, because neither appears in
 that parsed entry. **That is what "miss those details" means.** Both strings
 are still saved in `raw_toc_json`; they have not disappeared from the dataset.
-We have not yet decided whether to include them in recommendation text.
+The first TOC preparation described below adds a chapter subtitle when it
+contributes text. A label supplies main text only when `title` and `value` are
+unavailable; otherwise it stays in a separate metadata column.
 
 Here is the broader count of extra keys in decoded `raw_toc_json`. The example
 values still refer to our same book's first chapter; the two count columns
@@ -556,12 +558,23 @@ plan before adopting it for recommendations.
 uv run python -m bookpath.toc
 ```
 
-This file has **141,513 rows**, one per raw item across all 9,034 books, including
-18 items flagged `missing_text`. The 141,495 nonmissing `base_text` values
-reproduce the existing `toc_entries` text in order. All 16 chapter subtitles
+This file has **141,513 rows and 21 columns**, one row per raw item across all
+9,034 books, including 18 items flagged `missing_text`. The 141,495 nonmissing
+`base_text` values reproduce the existing `toc_entries` text in order. All 16 chapter subtitles
 add text in this snapshot. There are 435 `numeric_only_text` flags and 2,916
 `repeated_text` flags; flagged rows are retained. Repeat comparison ignores case
 and repeated whitespace within the same book and marks every occurrence.
+
+The three flag counts total **3,369 flag matches**, affecting **3,361 distinct
+items** because some items have more than one flag. Another **138,152 items**
+have none of these flags, giving **141,513 items in total**. Flagged rows have
+been processed by `toc.py`; the flags identify conditions for inspection and
+do not automatically remove rows.
+
+`build_toc_features(books)` creates 20 columns containing identifiers, text,
+original-item details, review flags, and the preparation version.
+`prepare_toc_features(...)` adds `source_sha256` when saving, making 21 columns.
+Section 1 of notebook 03 lists every column, grouped by purpose.
 
 For the first chapter of *Never Split the Difference* (`0062407805`):
 
@@ -573,6 +586,11 @@ For the first chapter of *Never Split the Difference* (`0062407805`):
 | `text_source` | `title` |
 | `raw_position` | `1` |
 | `subtitle_added` | `True` |
+
+`chapter_subtitle` copies the `subtitle` inside the original TOC item, trimming
+outer whitespace. Missing, blank, or non-text values become missing. This
+column contains only the chapter subtitle; it does not use the book-level
+`subtitle` column.
 
 `feature_text` trims outer whitespace and adds the subtitle with `: ` between
 the two parts. It avoids adding a subtitle whose whole word sequence already
@@ -588,7 +606,7 @@ are not automatically joined into `feature_text`. The saved file also records
 Existing outputs are protected from overwrite; choose another `--output` path
 to save a later experiment. No fitted preprocessing or embeddings are involved.
 
-### TOC version 1 checkpoint (2026-10-02)
+### TOC version 1 checkpoint (updated 2026-10-03)
 
 The first TOC exploration and preparation are complete enough to use in a first
 recommendation implementation. Further TOC cleaning is deferred until a working
@@ -598,12 +616,38 @@ recommendation baseline shows a concrete need for it.
 | --- | --- |
 | [02_toc_eda.ipynb](../notebooks/02_toc_eda.ipynb) | The saved TOC copies agree; the 18-item difference is explained; main text and selected metadata are preserved in order. Field coverage, hierarchy, page labels, repeated headings, and text lengths have been inspected. |
 | `src/bookpath/toc.py` and `data/processed/toc_features.parquet` | One traceable row per original item, with selected text plus a chapter subtitle when available. All 16 chapter subtitles across two book records add text; review flags retain unusual items for later inspection. |
-| [03_toc_preparation_preview.ipynb](../notebooks/03_toc_preparation_preview.ipynb) | A before/after preview of the prepared TOC text, with checks for text preservation, item positions, and source-file integrity. |
+| [03_toc_preparation_preview.ipynb](../notebooks/03_toc_preparation_preview.ipynb) | A selectable before/after example, explained columns and review totals, and checks for text agreement, original positions, and exact agreement between the saved table and the current preparation code. |
 
 Notebook 03 was renamed from `03_toc_features_preview.ipynb` to avoid confusion
 with the Amazon `features` column. Its input remains `raw_toc_json`; it does
 not explore the book-level `description` or `features` columns. The existing
 processed filename and `feature_text` output column keep their names.
+
+Section 2 accepts a specific `parent_asin` or a repeatable random selection;
+sections 2–3 follow that book. Sections 4–6 check the whole saved catalog.
+Section 4 labels its five output tables: two summaries and three sets of
+flagged-item examples. The examples are already included in the summary counts.
+
+All nine code cells ran successfully. Section 5 checks each of the 9,034 books:
+the 141,495 nonmissing `base_text` values match the saved `toc_entries` text in
+order, and every original item position is present once, in order. Section 6
+rebuilds the prepared table in memory and compares all **141,513 rows and 21
+columns**, including values, data types, and order. Each
+`(parent_asin, raw_position)` pair is unique, the recorded source checksum
+matches the raw file, and both saved Parquet files remain unchanged.
+
+**Decisions for the first retrieval baseline:**
+
+| Decision | Planned pipeline behavior |
+| --- | --- |
+| Input | Read `data/processed/toc_features.parquet`. |
+| Text and identifiers | Use `feature_text`; retain `parent_asin` and `raw_position` to trace each item. |
+| Missing text | Keep every row in the prepared file. Skip missing or blank `feature_text` when creating embeddings. |
+| Numeric and repeated text | Keep these items initially, with their flags. Evaluate whether filtering improves retrieval before changing that choice. |
+
+These decisions are recorded in notebook 03's closing section. They describe
+the next pipeline step; embedding generation and retrieval are not implemented
+by this notebook or `toc.py`.
 
 The current preparation is the version 1 candidate. It has not demonstrated
 better recommendations, and matching saved TOC copies does not establish that
@@ -671,9 +715,10 @@ file's unchanged SHA-256 were checked. No processed dataset was written.
 ## Evaluation design before choosing retrieval features
 
 The EDA notebooks remain descriptive. A separate candidate TOC feature dataset
-now exists for inspection. No train/test split, fitted transformation,
-resampling, embedding model, or ranking evaluation has been created. Its text
-rules still need evaluation before being adopted for recommendations.
+now exists and its `feature_text` column is selected for the first baseline.
+No train/test split, fitted transformation, resampling, embedding model, or
+ranking evaluation has been created. Retrieval evaluation still needs to
+establish whether these text rules help recommendations.
 
 The full saved catalog has been inspected, so it is development evidence, not
 an untouched test set. Before using these observations to choose modeling or
@@ -687,8 +732,10 @@ development/validation data for tuning. See
 [scikit-learn's leakage guidance](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage).
 
 Unresolved questions for a later step include numeric types and validation,
-the deduplication unit, missing descriptions, and TOC text/metadata quality. No
-automatic deletion or filling rule has been chosen.
+the deduplication unit, missing descriptions, and TOC text/metadata quality.
+No rows have been deleted or missing values filled in the saved raw and
+prepared TOC files. The planned exclusion of empty text applies only to the
+future embedding input.
 
 Any later refresh should create a new raw file or record its date, query, row
 count, and checksum before replacing this snapshot.
