@@ -62,5 +62,5 @@ Podemos usar un CROSS-ENCODER?
 
 20. do we need "two indexes for your documents: one with case-normalized n-grams, and another with the original capitalization. "
 
-21. 
+21. should we try good old linear SVD and PCA do a pretty good job of preserving the “information” in the point cloud vector data?
 
