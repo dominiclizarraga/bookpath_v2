@@ -89,6 +89,40 @@ The checked `categories`, `isbn_aliases`, `matched_isbn_aliases`, and
 still contain missing or unhelpful elements; this check does not inspect every
 element's content.
 
+### How we interpret missing data
+
+Following Chip Huyen's *Designing Machine Learning Systems*, chapter 5,
+“Handling Missing Values,” p. 124 (the excerpt reviewed for this project),
+missingness can be described by three mechanisms:
+
+| Acronym | Meaning | What would explain the missingness? |
+| --- | --- | --- |
+| **MCAR** | Missing Completely at Random | Missingness is unrelated to either observed information or the unavailable values. |
+| **MAR** | Missing at Random | Observed information can explain missingness; after accounting for it, missingness does not depend on the unavailable values. |
+| **MNAR** | Missing Not at Random | Missingness still depends on the unavailable values themselves, even after accounting for observed information. |
+
+Our EDA identifies missing values and empty collections but does not establish
+their underlying causes. **We have not assigned a confirmed MCAR, MAR, or MNAR
+mechanism to the source data.** Observed data alone cannot distinguish MAR from
+MNAR; see [Sterne and colleagues (2009)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2714692/).
+
+Nulls, blank strings (`""`), and empty collections (`[]`) describe how absence
+appears in the dataset, rather than why it happened. These distinctions are
+checked in [notebook 01, section 3](../notebooks/01_raw_books_eda.ipynb).
+A book that genuinely has no subtitle is a case of “not applicable,” rather
+than an existing subtitle that failed to get recorded. A missing subtitle
+field alone does not tell us which situation applies.
+
+For the **18 TOC items across 17 books** without usable text, we established
+why the saved `toc_entries` column omitted them: none supplied usable text
+through `title`, `value`, or `label`, or as a plain string. This explains the
+difference between **141,513 original items in `raw_toc_json`** and **141,495
+parsed entries in `toc_entries`**, as checked in
+[notebook 02, section 4.2](../notebooks/02_toc_eda.ipynb).
+The parsing rule explains these omissions, but why the text was unavailable
+in the source remains unknown. This does not establish a MAR or MNAR mechanism
+for the missing source text.
+
 ### Candidate subtitle feature for a later phase
 
 `subtitle` is the Amazon source field. `ol_subtitle` is the `subtitle` field
