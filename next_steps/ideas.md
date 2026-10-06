@@ -56,4 +56,11 @@ Podemos usar un CROSS-ENCODER?
 
 17. explore the techniques mentioned in book Natural Language Processing in action: A comparison of the syntax parsing accuracy of SpaCy (93%), SyntaxNet (94%), Stanford’s CoreNLP (90%), and others is available at https://spacy.io/docs/api/.
 
-18. 
+18. use aiand for summarize different chunks of the books, also for assigning difficulty level, they have diff models so we can use LLM-as-a-Judge https://docs.aiand.com/models/catalog/
+
+19. no hemos eliminado stop words, no hemos decididos si hacemos 2-grams, 3-grams? necesitamos case-folding?
+
+20. do we need "two indexes for your documents: one with case-normalized n-grams, and another with the original capitalization. "
+
+21. should we try good old linear SVD and PCA do a pretty good job of preserving the “information” in the point cloud vector data?
+
