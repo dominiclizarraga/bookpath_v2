@@ -1,5 +1,7 @@
 # BookPath
 
+[![Tests](https://github.com/dominiclizarraga/bookpath_v2/actions/workflows/tests.yml/badge.svg)](https://github.com/dominiclizarraga/bookpath_v2/actions/workflows/tests.yml)
+
 BookPath recommends a learning path through books based on a user's goal and existing knowledge.
 
 ## Problem
@@ -26,6 +28,8 @@ uv run pytest
 
 Tests use invented book records and temporary files. BigQuery subprocess calls
 are mocked; tests do not need Google credentials or submit real queries.
+GitHub Actions runs the same offline suite with locked dependencies on pushes
+and pull requests. A green check verifies code tests, not retrieval quality.
 
 ## Local book data
 
@@ -176,3 +180,28 @@ recorded in [docs/data.md](docs/data.md).
 per evaluated method, with **nDCG@5, Recall@10, MRR, and Precision@5** as columns.
 It explains the proposed scoring rules and the shared queries and relevance
 labels needed before measuring results. Scores are currently unmeasured.
+
+Run the fixed **baseline 0: TF-IDF + cosine similarity** against the saved
+document table:
+
+```sh
+uv run python -m bookpath.baseline0
+```
+
+It uses the unchanged query in `benchmarks/baseline_0/query.json`, joins the
+prepared texts per book, and ranks all books with `TfidfVectorizer()` defaults.
+The complete ranking and run metadata are saved to a new local folder,
+`data/evaluation/baseline_0`; an existing run is protected from overwrite.
+Open [06_tfidf_baseline_0.ipynb](notebooks/06_tfidf_baseline_0.ipynb) to inspect
+the results. Cosine scores rank books; quality metrics still require independent
+relevance labels.
+
+The [candidate report](benchmarks/gold_v1/tfidf_candidates.md) contains ten
+books for each of the 30 reviewed queries. Open
+[07_tfidf_candidates_review.ipynb](notebooks/07_tfidf_candidates_review.ipynb)
+to inspect their descriptions, features, and TOCs. Start with the
+[five-query labeling pilot](benchmarks/gold_v1/README.md#your-next-task): 50
+query–book pairs, graded 0–3 against the goal and background.
+
+The [source index](docs/references.md) collects the references used for TF-IDF,
+evaluation, missing data, and automated checks.

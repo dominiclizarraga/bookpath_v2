@@ -11,6 +11,7 @@ dependencies = [
   "pandas",
   "pyarrow>=25.0.1",
   "python-dotenv",
+  "scikit-learn>=1.9.1",
 ]
 
 [tool.setuptools.packages.find]

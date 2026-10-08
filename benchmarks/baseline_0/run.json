@@ -1,0 +1,134 @@
+{
+  "method": "baseline_0_tfidf_cosine",
+  "created_at_utc": "2026-10-08T08:03:31.553419+00:00",
+  "query_id": "online_business_finance_001",
+  "query": "I want to know what is needed to start a online business, given that i  have a finance background",
+  "documents_sha256": "6e1658ccd89036351be8355efb00632a56f3944beb97123d9bee437afdd11099",
+  "query_file_sha256": "5f6ab557e2bf71540192b53196a83b5a5878215bca8cd65679c4dd19b8b6c5bc",
+  "input_document_rows": 150496,
+  "candidate_books": 9034,
+  "ranked_books": 9034,
+  "book_text": "Prepared document texts joined in saved order; title is metadata only.",
+  "tie_break": "parent_asin ascending",
+  "python_version": "3.12.9",
+  "scikit_learn_version": "1.9.1",
+  "code_sha256": {
+    "tfidf.py": "ed5f2d1941f5a2d669e48b62e9f11321217662630fdd7990b5afd8edbf701a29",
+    "baseline0.py": "0647213b1c05614dff1f77c19530eadfd55525d9d010fe00db14d328b6f4f918"
+  },
+  "random_seed": null,
+  "tuned": false,
+  "vocabulary_size": 56594,
+  "vectorizer_parameters": {
+    "analyzer": "word",
+    "binary": false,
+    "decode_error": "strict",
+    "dtype": "float64",
+    "encoding": "utf-8",
+    "input": "content",
+    "lowercase": true,
+    "max_df": 1.0,
+    "max_features": null,
+    "min_df": 1,
+    "ngram_range": [
+      1,
+      1
+    ],
+    "norm": "l2",
+    "preprocessor": null,
+    "smooth_idf": true,
+    "stop_words": null,
+    "strip_accents": null,
+    "sublinear_tf": false,
+    "token_pattern": "(?u)\\b\\w\\w+\\b",
+    "tokenizer": null,
+    "use_idf": true,
+    "vocabulary": null
+  },
+  "query_terms_in_vocabulary": [
+    "background",
+    "business",
+    "finance",
+    "given",
+    "have",
+    "is",
+    "know",
+    "needed",
+    "online",
+    "start",
+    "that",
+    "to",
+    "want",
+    "what"
+  ],
+  "query_terms_outside_vocabulary": [],
+  "metrics": {
+    "nDCG@5": null,
+    "Recall@10": null,
+    "MRR": null,
+    "Precision@5": null
+  },
+  "metric_status": "Unmeasured: no independent relevance judgments supplied.",
+  "top_10": [
+    {
+      "rank": 1,
+      "parent_asin": "1683509854",
+      "book_title": "Don\u2019t Sleep on It: Turn Your Passion & Expertise into a Profitable Online Business",
+      "cosine_similarity": 0.2617888943264943
+    },
+    {
+      "rank": 2,
+      "parent_asin": "1705797547",
+      "book_title": "The 60 Minute Startup: A Proven System to Start Your Business in 1 Hour a Day and Get Your First Paying Customers in 30 Days (or Less) (The Agile Entrepreneurship Series)",
+      "cosine_similarity": 0.24073946632133333
+    },
+    {
+      "rank": 3,
+      "parent_asin": "1119228352",
+      "book_title": "Investing Online For Dummies",
+      "cosine_similarity": 0.23491485198162568
+    },
+    {
+      "rank": 4,
+      "parent_asin": "0470769262",
+      "book_title": "Investing Online For Dummies",
+      "cosine_similarity": 0.23296097762102033
+    },
+    {
+      "rank": 5,
+      "parent_asin": "1118495365",
+      "book_title": "Investing Online For Dummies",
+      "cosine_similarity": 0.23058803052006918
+    },
+    {
+      "rank": 6,
+      "parent_asin": "0793145171",
+      "book_title": "Selling Online: How to Become a Successful E-Commerce Merchant",
+      "cosine_similarity": 0.2297227454225126
+    },
+    {
+      "rank": 7,
+      "parent_asin": "1581159021",
+      "book_title": "The Pocket Small Business Owner's Guide to Building Your Business (Pocket Small Business Owner's Guides)",
+      "cosine_similarity": 0.22959552288813032
+    },
+    {
+      "rank": 8,
+      "parent_asin": "1118926706",
+      "book_title": "Starting an Online Business All-in-One For Dummies",
+      "cosine_similarity": 0.21962752450069123
+    },
+    {
+      "rank": 9,
+      "parent_asin": "0764503359",
+      "book_title": "Marketing Online For Dummies",
+      "cosine_similarity": 0.20578897707677957
+    },
+    {
+      "rank": 10,
+      "parent_asin": "0538496894",
+      "book_title": "Entrepreneurship: Ideas in Action (DECA)",
+      "cosine_similarity": 0.20365132819697804
+    }
+  ]
+}

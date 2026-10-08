@@ -1,0 +1,2091 @@
+{
+  "method": "baseline_0_tfidf_cosine",
+  "created_at_utc": "2026-10-08T09:05:52.317754+00:00",
+  "query_set_version": "gold-v1-draft",
+  "queries_sha256": "559a0a92fd1098933c235c3f803551b63e3d171266b3b95804fa2a3aebfd5757",
+  "documents_sha256": "6e1658ccd89036351be8355efb00632a56f3944beb97123d9bee437afdd11099",
+  "query_count": 30,
+  "candidate_books_per_query": 9034,
+  "full_ranking_rows": 271020,
+  "top_k": 10,
+  "review_pairs": 300,
+  "scikit_learn_version": "1.9.1",
+  "code_sha256": {
+    "tfidf.py": "ed5f2d1941f5a2d669e48b62e9f11321217662630fdd7990b5afd8edbf701a29",
+    "candidates.py": "12985475573a7498f7e1056432e5ea59f0c4bf885beed44bc05df77d15b7fac4"
+  },
+  "retrieval_input": "query text only; background and success criterion are judgment context",
+  "labels_status": "No relevance labels assigned; TF-IDF candidates only, not a complete pool.",
+  "queries": [
+    {
+      "query_id": "online_business_finance_001",
+      "topic": "Entrepreneurship",
+      "background": "Finance professional",
+      "query": "I want to know what is needed to start a online business, given that i  have a finance background",
+      "success_criterion": "Practical guidance on starting an online business; finance experience is context, not a request for investment advice.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1683509854",
+          "book_title": "Don\u2019t Sleep on It: Turn Your Passion & Expertise into a Profitable Online Business",
+          "cosine_similarity": 0.2617888943264943
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1705797547",
+          "book_title": "The 60 Minute Startup: A Proven System to Start Your Business in 1 Hour a Day and Get Your First Paying Customers in 30 Days (or Less) (The Agile Entrepreneurship Series)",
+          "cosine_similarity": 0.24073946632133333
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1119228352",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.23491485198162568
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0470769262",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.23296097762102033
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1118495365",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.23058803052006918
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0793145171",
+          "book_title": "Selling Online: How to Become a Successful E-Commerce Merchant",
+          "cosine_similarity": 0.2297227454225126
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1581159021",
+          "book_title": "The Pocket Small Business Owner's Guide to Building Your Business (Pocket Small Business Owner's Guides)",
+          "cosine_similarity": 0.22959552288813032
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1118926706",
+          "book_title": "Starting an Online Business All-in-One For Dummies",
+          "cosine_similarity": 0.21962752450069123
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0764503359",
+          "book_title": "Marketing Online For Dummies",
+          "cosine_similarity": 0.20578897707677957
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0538496894",
+          "book_title": "Entrepreneurship: Ideas in Action (DECA)",
+          "cosine_similarity": 0.20365132819697804
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_002",
+      "topic": "Entrepreneurship",
+      "background": "Software engineer, new to business",
+      "query": "I am a software engineer and want to validate a business idea before spending months building a product.",
+      "success_criterion": "Customer discovery and testing demand before product development.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.20468474369513837
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0072262788",
+          "book_title": "What to Sell on eBay and Where to Get It: The Definitive Guide to Product Sourcing for eBay and Beyond",
+          "cosine_similarity": 0.16671989706012447
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1482773031",
+          "book_title": "The Idealware Field Guide to Software for Nonprofits 2013",
+          "cosine_similarity": 0.16620132087069733
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0321605780",
+          "book_title": "Agile Product Management with Scrum: Creating Products that Customers Love (Addison-Wesley Signature Series (Cohn))",
+          "cosine_similarity": 0.1557900273582291
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1119264022",
+          "book_title": "Product Management For Dummies",
+          "cosine_similarity": 0.15540920695893193
+        },
+        {
+          "rank": 6,
+          "parent_asin": "007180546X",
+          "book_title": "The Product Manager's Survival Guide: Everything You Need to Know to Succeed as a Product Manager",
+          "cosine_similarity": 0.14847124552532395
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0471485241",
+          "book_title": "The PDMA Handbook of New Product Development, Second Edition",
+          "cosine_similarity": 0.14451756723806786
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1622037278",
+          "book_title": "The Four Virtues of a Leader: Navigating the Hero's Journey Through Risk to Results",
+          "cosine_similarity": 0.14187303512836108
+        },
+        {
+          "rank": 9,
+          "parent_asin": "178195562X",
+          "book_title": "Software Ecosystems: Analyzing and Managing Business Networks in the Software Industry",
+          "cosine_similarity": 0.14181644379432642
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1118960874",
+          "book_title": "The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback",
+          "cosine_similarity": 0.1388732812411178
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_003",
+      "topic": "Entrepreneurship",
+      "background": "Teacher with a full-time job",
+      "query": "I work full time as a teacher and want to start a small side business without quitting my job.",
+      "success_criterion": "Practical side-business planning with limited time and low financial risk.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1605252913",
+          "book_title": "Teaching",
+          "cosine_similarity": 0.25343991600617827
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0982986270",
+          "book_title": "Quitter: Closing the Gap Between Your Day Job & Your Dream Job",
+          "cosine_similarity": 0.24822371162086962
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1413310672",
+          "book_title": "Running a Side Business: How to Create a Second Income",
+          "cosine_similarity": 0.23595843042274078
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1524758841",
+          "book_title": "Side Hustle: From Idea to Income in 27 Days",
+          "cosine_similarity": 0.22396706011824888
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0618277226",
+          "book_title": "Houghton Mifflin Math Grade 5",
+          "cosine_similarity": 0.21298756740497818
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1519404638",
+          "book_title": "Turn Your Computer Into a Money Machine: How to make money from home and grow your income fast, with no prior experience! Set up within a week!",
+          "cosine_similarity": 0.20180380325501593
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0618277218",
+          "book_title": "Houghton Mifflin Math (C) 2005: Student Book Grade 4 2005",
+          "cosine_similarity": 0.1979545908184927
+        },
+        {
+          "rank": 8,
+          "parent_asin": "153006905X",
+          "book_title": "The Side Hustle Path: 10 Proven Ways to Make Money Outside of Your Day Job",
+          "cosine_similarity": 0.17829872938800354
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0470177470",
+          "book_title": "Small Business For Dummies",
+          "cosine_similarity": 0.17455843918503083
+        },
+        {
+          "rank": 10,
+          "parent_asin": "149747194X",
+          "book_title": "Never Work Again: Work Less, Earn More, and Live Your Freedom",
+          "cosine_similarity": 0.17200808368661566
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_004",
+      "topic": "Entrepreneurship",
+      "background": "Designer, no business experience",
+      "query": "I am a designer and want to turn my freelance work into a sustainable consulting business.",
+      "success_criterion": "Finding clients, defining services, pricing, and running a small service business, biographies of other designers that started similar businesses.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1440596786",
+          "book_title": "The Ultimate Freelancer's Guidebook: Learn How to Land the Best Jobs, Build Your Brand, and Be Your Own Boss",
+          "cosine_similarity": 0.3393848521552056
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.2713748046839948
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0763756881",
+          "book_title": "Consulting And Evaluation With Nonprofit And Community-Based Organizations",
+          "cosine_similarity": 0.263929387479187
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1118241843",
+          "book_title": "The Practice of Professional Consulting",
+          "cosine_similarity": 0.21202391677699237
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.2050058489694933
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1138188921",
+          "book_title": "Social Sustainability for Business",
+          "cosine_similarity": 0.2008571516562047
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1621535509",
+          "book_title": "Starting Your Career as a Freelance Writer",
+          "cosine_similarity": 0.19168593640369377
+        },
+        {
+          "rank": 8,
+          "parent_asin": "027363707X",
+          "book_title": "Breakthrough Consulting: So You Want to Be a Consultant? Turn Your Expertise into a Successful Consulting Business",
+          "cosine_similarity": 0.16886058732933965
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0787960497",
+          "book_title": "High-Impact Consulting: How Clients and Consultants Can Work Together to Achieve Extraordinary Results (Completely Revised and Updated)",
+          "cosine_similarity": 0.16768211481906206
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1933895098",
+          "book_title": "Six-Week Start-Up: A Step-By-Step Program for Starting Your Business, Making Money, and Achieving Your Goals!",
+          "cosine_similarity": 0.16326047422955567
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_005",
+      "topic": "Entrepreneurship",
+      "background": "Small retail business owner",
+      "query": "I own a small physical shop and want to begin selling my products online.",
+      "success_criterion": "Moving a retail business into e-commerce, including fulfillment and online customer acquisition.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1446305015",
+          "book_title": "F&W Media David and Charles Books, From Passion to Profit",
+          "cosine_similarity": 0.28286646220726996
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0132752131",
+          "book_title": "Selling Financial Products: A Practical Guide for Successful Bank Sales With Case Studies",
+          "cosine_similarity": 0.263186848269454
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0793145171",
+          "book_title": "Selling Online: How to Become a Successful E-Commerce Merchant",
+          "cosine_similarity": 0.25260115396978045
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1119228352",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.21497090989229475
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0470769262",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.21335092467310487
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0764503359",
+          "book_title": "Marketing Online For Dummies",
+          "cosine_similarity": 0.21004813977442344
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1539993140",
+          "book_title": "Passive Income: 30 Strategies and Ideas To Start an Online Business and Acquiring Financial Freedom",
+          "cosine_similarity": 0.2081858242326577
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1118495365",
+          "book_title": "Investing Online For Dummies",
+          "cosine_similarity": 0.20005369933209333
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1933895098",
+          "book_title": "Six-Week Start-Up: A Step-By-Step Program for Starting Your Business, Making Money, and Achieving Your Goals!",
+          "cosine_similarity": 0.1979038288305177
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0910965862",
+          "book_title": "Point, Click, and Save: Mashup Mom's Guide to Saving and Making Money Online",
+          "cosine_similarity": 0.19302604872778023
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_006",
+      "topic": "Marketing and sales",
+      "background": "New online business owner",
+      "query": "I have launched an online store and want to attract my first customers with a small marketing budget.",
+      "success_criterion": "Practical customer acquisition for a new online store with limited resources. Success stories of companies that started with limited budgets.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0793145171",
+          "book_title": "Selling Online: How to Become a Successful E-Commerce Merchant",
+          "cosine_similarity": 0.32135195304799674
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1422128849",
+          "book_title": "Preparing a Budget (Pocket Mentor)",
+          "cosine_similarity": 0.24799733610291733
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0764503359",
+          "book_title": "Marketing Online For Dummies",
+          "cosine_similarity": 0.23464800469041283
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1933895055",
+          "book_title": "Successful Marketing: Secrets & Strategies",
+          "cosine_similarity": 0.23264404029999
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1118896653",
+          "book_title": "Inbound Marketing, Revised and Updated: Attract, Engage, and Delight Customers Online",
+          "cosine_similarity": 0.22861419913608858
+        },
+        {
+          "rank": 6,
+          "parent_asin": "047040115X",
+          "book_title": "Marketing Kit for Dummies",
+          "cosine_similarity": 0.2181509181473006
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1705797547",
+          "book_title": "The 60 Minute Startup: A Proven System to Start Your Business in 1 Hour a Day and Get Your First Paying Customers in 30 Days (or Less) (The Agile Entrepreneurship Series)",
+          "cosine_similarity": 0.21766762751450988
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0789741008",
+          "book_title": "Ultimate Web Marketing Guide, The",
+          "cosine_similarity": 0.21604446010590728
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1118880803",
+          "book_title": "Marketing For Dummies",
+          "cosine_similarity": 0.21560268387131606
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0071743863",
+          "book_title": "The McGraw-Hill 36-Hour Course: Online Marketing (McGraw-Hill 36-Hour Courses)",
+          "cosine_similarity": 0.21005438812884553
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_007",
+      "topic": "Marketing and sales",
+      "background": "Technical founder, little sales experience",
+      "query": "I am a technical founder and need to learn how to sell software to other businesses.",
+      "success_criterion": "Business-to-business sales (B2B), prospecting, conversations, and closing customers. Case studies of successful technical founders in B2B sales.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.30844234305044793
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1482773031",
+          "book_title": "The Idealware Field Guide to Software for Nonprofits 2013",
+          "cosine_similarity": 0.25337291299947373
+        },
+        {
+          "rank": 3,
+          "parent_asin": "111867913X",
+          "book_title": "Trading Options: Using Technical Analysis to Design Winning Trades",
+          "cosine_similarity": 0.2334152352092476
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1622037278",
+          "book_title": "The Four Virtues of a Leader: Navigating the Hero's Journey Through Risk to Results",
+          "cosine_similarity": 0.21703179768449737
+        },
+        {
+          "rank": 5,
+          "parent_asin": "111943470X",
+          "book_title": "How Clients Buy: A Practical Guide to Business Development for Consulting and Professional Services",
+          "cosine_similarity": 0.19971970259840394
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0133110702",
+          "book_title": "Visualizing Technology, Complete (2nd Edition)",
+          "cosine_similarity": 0.19270925955173238
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0470037903",
+          "book_title": "The National Association of Realtors Guide to Home Selling",
+          "cosine_similarity": 0.18555423980394
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1119161835",
+          "book_title": "The Complete Software Project Manager: Mastering Technology from Planning to Launch and Beyond (Wiley CIO)",
+          "cosine_similarity": 0.18457871979350704
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1455500666",
+          "book_title": "Buy High, Sell Higher: Why Buy-And-Hold Is Dead And Other Investing Lessons from CNBC's \"The Liquidator\"",
+          "cosine_similarity": 0.18120480942969622
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0137056346",
+          "book_title": "Visualizing Technology",
+          "cosine_similarity": 0.1752718023989239
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_008",
+      "topic": "Marketing and sales",
+      "background": "Freelancer who undercharges",
+      "query": "I am a freelancer and want to price my services confidently instead of competing only on low prices.",
+      "success_criterion": "Service pricing, value communication, and negotiating fees. Freelance stories.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1591844274",
+          "book_title": "The Price of Everything: Finding Method in the Madness of What Things Cost",
+          "cosine_similarity": 0.2529782347918765
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.23223606611025768
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1591843626",
+          "book_title": "The Price of Everything: Solving the Mystery of Why We Pay What We Do",
+          "cosine_similarity": 0.20035346636613455
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0071664661",
+          "book_title": "Crush Price Objections: Sales Tactics for Holding Your Ground and Protecting Your Profit",
+          "cosine_similarity": 0.19453252583387035
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.19129596850352515
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0983293600",
+          "book_title": "The Balanced Entrepreneur",
+          "cosine_similarity": 0.15708409001430215
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0071637087",
+          "book_title": "CustomerCentric Selling, Second Edition",
+          "cosine_similarity": 0.15225290072649986
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1422170012",
+          "book_title": "What to Ask the Person in the Mirror: Critical Questions for Becoming a More Effective Leader and Reaching Your Potential",
+          "cosine_similarity": 0.14189421007983974
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1622037278",
+          "book_title": "The Four Virtues of a Leader: Navigating the Hero's Journey Through Risk to Results",
+          "cosine_similarity": 0.1412196836410742
+        },
+        {
+          "rank": 10,
+          "parent_asin": "B005X4C272",
+          "book_title": "The Creative Professional's Guide to Money: How to Think About It, How to Talk About it, How to Manage It",
+          "cosine_similarity": 0.14115015437325443
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_009",
+      "topic": "Marketing and sales",
+      "background": "Small business owner with repeat customers",
+      "query": "I run a small business and want to improve customer retention rather than relying on constant advertising.",
+      "success_criterion": "Understanding customer loyalty, service, and repeat purchases.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1599185849",
+          "book_title": "No B.S. Guide to Maximum Referrals and Customer Retention: The Ultimate No Holds Barred Plan to Securing New Customers and Maximum Profits",
+          "cosine_similarity": 0.28796308268108206
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0761922539",
+          "book_title": "Effective Advertising: Understanding When, How, and Why Advertising Works (Marketing for a New Century)",
+          "cosine_similarity": 0.24066242677535749
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1111528756",
+          "book_title": "Advertising Age: The Principles of Advertising and Marketing Communication at Work (with Ad Age on Campus Printed Access Card)",
+          "cosine_similarity": 0.22971619673739868
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0136110827",
+          "book_title": "Kleppner's Advertising Procedure",
+          "cosine_similarity": 0.22702888627845766
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0415886627",
+          "book_title": "Advertising Theory (Routledge Communication Series)",
+          "cosine_similarity": 0.2194131897562059
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1442244089",
+          "book_title": "Strategic Copywriting: How to Create Effective Advertising",
+          "cosine_similarity": 0.214309765695177
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0132224151",
+          "book_title": "Advertising: Principles & Practice",
+          "cosine_similarity": 0.19808459391606006
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0470051051",
+          "book_title": "The Online Advertising Playbook: Proven Strategies and Tested Tactics from the Advertising Research Foundation",
+          "cosine_similarity": 0.1980409041197431
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0470673095",
+          "book_title": "Advertising and Society: An Introduction",
+          "cosine_similarity": 0.19543590288683899
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1439861285",
+          "book_title": "Superior Customer Value: Strategies for Winning and Retaining Customers, Third Edition",
+          "cosine_similarity": 0.1902808853403806
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_010",
+      "topic": "Marketing and sales",
+      "background": "Product designer moving into marketing",
+      "query": "I understand product design but want to learn how to position a new product and communicate why customers should choose it.",
+      "success_criterion": "Positioning, differentiation, and clear customer-focused messaging.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0321605780",
+          "book_title": "Agile Product Management with Scrum: Creating Products that Customers Love (Addison-Wesley Signature Series (Cohn))",
+          "cosine_similarity": 0.3651933857000848
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1119264022",
+          "book_title": "Product Management For Dummies",
+          "cosine_similarity": 0.36175171383889576
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1625274793",
+          "book_title": "Well-Designed: How to Use Empathy to Create Products People Love",
+          "cosine_similarity": 0.34724164274296054
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0471485241",
+          "book_title": "The PDMA Handbook of New Product Development, Second Edition",
+          "cosine_similarity": 0.3429904754542749
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1118960874",
+          "book_title": "The Lean Product Playbook: How to Innovate with Minimum Viable Products and Rapid Customer Feedback",
+          "cosine_similarity": 0.3425000331523373
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0072262788",
+          "book_title": "What to Sell on eBay and Where to Get It: The Definitive Guide to Product Sourcing for eBay and Beyond",
+          "cosine_similarity": 0.3324763423752504
+        },
+        {
+          "rank": 7,
+          "parent_asin": "007180546X",
+          "book_title": "The Product Manager's Survival Guide: Everything You Need to Know to Succeed as a Product Manager",
+          "cosine_similarity": 0.3122699944326947
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0137137478",
+          "book_title": "From Concept to Consumer: How to Turn Ideas Into Money",
+          "cosine_similarity": 0.25233330749652344
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1491982276",
+          "book_title": "Product Management in Practice: A Real-World Guide to the Key Connective Role of the 21st Century",
+          "cosine_similarity": 0.23277703778904402
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1599186098",
+          "book_title": "Start Your Own Etsy Business: Handmade Goods, Crafts, Jewelry, and More (Startup Series)",
+          "cosine_similarity": 0.22134286012807003
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_011",
+      "topic": "Management and leadership",
+      "background": "Recently promoted individual contributor",
+      "query": "I have just become a manager and need to learn how to lead people, give feedback, and delegate.",
+      "success_criterion": "Accessible first-manager guidance with practical people-management tools. Leadership books and different management styles.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0670014664",
+          "book_title": "Thanks for the Feedback: The Science and Art of Receiving Feedback Well",
+          "cosine_similarity": 0.2820978172586555
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0910627754",
+          "book_title": "365 Foolish Mistakes Smart Managers Make Every Day: How and Why to Avoid Them",
+          "cosine_similarity": 0.24991912765736563
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0471998206",
+          "book_title": "The Power of Feedback: 35 Principles for Turning Feedback from Others into Personal and Professional Change",
+          "cosine_similarity": 0.24929982264549017
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1432709593",
+          "book_title": "What to Do When You Become the Boss: How New Managers Become Successful Managers",
+          "cosine_similarity": 0.2474375644204079
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1432714287",
+          "book_title": "What to Do When You Become the Boss: How New Managers Become Successful Managers",
+          "cosine_similarity": 0.24165586758362928
+        },
+        {
+          "rank": 6,
+          "parent_asin": "031624306X",
+          "book_title": "The 80/20 Manager: The Secret to Working Less and Achieving More",
+          "cosine_similarity": 0.20530748206312038
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0814413080",
+          "book_title": "The Communication Problem Solver: Simple Tools and Techniques for Busy Managers",
+          "cosine_similarity": 0.20060618479033795
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1465454683",
+          "book_title": "The Essential Manager's Handbook: The Ultimate Visual Guide to Successful Management (DK Essential Managers)",
+          "cosine_similarity": 0.19442927653419365
+        },
+        {
+          "rank": 9,
+          "parent_asin": "073521171X",
+          "book_title": "Herding Tigers: Be the Leader That Creative People Need",
+          "cosine_similarity": 0.19148422759089667
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1423601580",
+          "book_title": "Better People Leader, The",
+          "cosine_similarity": 0.19132292494520597
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_012",
+      "topic": "Management and leadership",
+      "background": "Manager of a distributed team",
+      "query": "I manage a remote team and want to improve communication and accountability without micromanaging.",
+      "success_criterion": "Distributed-team coordination, expectations, trust, and accountability. How Remote work works and how to manage remote teams.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0275993329",
+          "book_title": "Managing by Accountability: What Every Leader Needs to Know about Responsibility, Integrity--and Results",
+          "cosine_similarity": 0.26113160731630963
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0742555623",
+          "book_title": "Creating Communication: Exploring and Expanding Your Fundamental Communication Skills",
+          "cosine_similarity": 0.19938432516078006
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1633690415",
+          "book_title": "HBR Guide to Leading Teams (HBR Guide Series)",
+          "cosine_similarity": 0.19861044790827453
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1523094451",
+          "book_title": "Faster Together: Accelerating Your Team's Productivity",
+          "cosine_similarity": 0.19388907009617123
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1591847877",
+          "book_title": "Fix It: Getting Accountability Right",
+          "cosine_similarity": 0.19337604374434017
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0195379047",
+          "book_title": "Organizational Communication",
+          "cosine_similarity": 0.1844545064789613
+        },
+        {
+          "rank": 7,
+          "parent_asin": "076193099X",
+          "book_title": "Communicating for Managerial Effectiveness",
+          "cosine_similarity": 0.17467676375992408
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0071499016",
+          "book_title": "The Champion Real Estate Team: A Proven Plan for Executing High Performance and Increasing Profits",
+          "cosine_similarity": 0.1743648411731031
+        },
+        {
+          "rank": 9,
+          "parent_asin": "159139290X",
+          "book_title": "Creating Teams with an Edge (Harvard Business Essentials)",
+          "cosine_similarity": 0.17077616929888714
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0470531924",
+          "book_title": "No More Excuses: The Five Accountabilities for Personal and Organizational Growth",
+          "cosine_similarity": 0.17045385593607612
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_013",
+      "topic": "Management and leadership",
+      "background": "Experienced manager facing conflict",
+      "query": "I manage an experienced team but need help having difficult conversations about poor performance.",
+      "success_criterion": "Constructive feedback and performance conversations with concrete techniques. Leading through inspiring.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0071779949",
+          "book_title": "Conversations for Creating Star Performers: Go Beyond the Performance Review to Inspire Excellence Every Day",
+          "cosine_similarity": 0.35440938138875555
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1118490312",
+          "book_title": "Critical Conversations For Dummies",
+          "cosine_similarity": 0.23716243483942667
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0071630252",
+          "book_title": "Surviving Dreaded Conversations: How to Talk Through Any Difficult Situation at Work",
+          "cosine_similarity": 0.23346221900597244
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1633690415",
+          "book_title": "HBR Guide to Leading Teams (HBR Guide Series)",
+          "cosine_similarity": 0.2287299499086373
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0470259558",
+          "book_title": "Drive Business Performance: Enabling a Culture of Intelligent Execution",
+          "cosine_similarity": 0.2222788858374275
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0814401686",
+          "book_title": "Working with Difficult People (Worksmart)",
+          "cosine_similarity": 0.19358410797402378
+        },
+        {
+          "rank": 7,
+          "parent_asin": "159139290X",
+          "book_title": "Creating Teams with an Edge (Harvard Business Essentials)",
+          "cosine_similarity": 0.19110439079797154
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0071499016",
+          "book_title": "The Champion Real Estate Team: A Proven Plan for Executing High Performance and Increasing Profits",
+          "cosine_similarity": 0.18986475101493624
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0071742263",
+          "book_title": "Building Engaged Team Performance: How to Align Your Processes and People to Achieve Game-changing Business Results",
+          "cosine_similarity": 0.18624570512766017
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0787996297",
+          "book_title": "Human Factors in Project Management: Concepts, Tools, and Techniques for Inspiring Teamwork and Motivation",
+          "cosine_similarity": 0.18331092567807808
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_014",
+      "topic": "Management and leadership",
+      "background": "Founder whose company is growing",
+      "query": "My small company is growing and I need to build processes so every decision does not depend on me.",
+      "success_criterion": "Delegation, operating systems, and repeatable processes for a growing company. Similar stories of founders who successfully scaled their companies.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0071360344",
+          "book_title": "How To Retire Happy: Everything You Need to Know about the 12 Most Important Decisions You Must Make before You Retire",
+          "cosine_similarity": 0.2096571825033647
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.19960318437597613
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1422170012",
+          "book_title": "What to Ask the Person in the Mirror: Critical Questions for Becoming a More Effective Leader and Reaching Your Potential",
+          "cosine_similarity": 0.18991169687441362
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0446407194",
+          "book_title": "Extreme Dreams Depend on Teams",
+          "cosine_similarity": 0.18740519641625417
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1984268945",
+          "book_title": "How to Make Sh*t Happen: Make more money, get in better shape, create epic relationships and control your life!",
+          "cosine_similarity": 0.18603601859555433
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0071464662",
+          "book_title": "How to Retire Happy: The 12 Most Important Decisions You Must Make Before You Retire",
+          "cosine_similarity": 0.18300729636728927
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1427797927",
+          "book_title": "The Radical Leap: A Personal Lesson in Extreme Leadership",
+          "cosine_similarity": 0.17835319932516394
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1619845091",
+          "book_title": "Emergence of the 'Me' Enterprise: A Blueprint for Leadership in the 21st Century",
+          "cosine_similarity": 0.17346846322545836
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0132884380",
+          "book_title": "Decision Management Systems: A Practical Guide to Using Business Rules and Predictive Analytics: A Practical Guide to Using Business Rules and Predictive Analytics (IBM Press)",
+          "cosine_similarity": 0.16502190009523834
+        },
+        {
+          "rank": 10,
+          "parent_asin": "111883366X",
+          "book_title": "Decision Making For Dummies",
+          "cosine_similarity": 0.16426412000948543
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_015",
+      "topic": "Management and leadership",
+      "background": "Department leader introducing change",
+      "query": "I lead a department and need to help employees adopt a major change in how we work.",
+      "success_criterion": "Organizational change, employee engagement, and implementation.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0763755605",
+          "book_title": "Federal Government Reorganization: A Policy And Management Perspective",
+          "cosine_similarity": 0.25529021147483827
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1932841547",
+          "book_title": "Change Better: Survive   and Thrive   During Change at Work and Throughout Life",
+          "cosine_similarity": 0.2282423735247276
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0804758751",
+          "book_title": "<I>Change</I> the Way You Lead Change: Leadership Strategies that REALLY Work",
+          "cosine_similarity": 0.22758981904424697
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0973913045",
+          "book_title": "Change Happens: Your Guide to Navigating Change using the 5C Model",
+          "cosine_similarity": 0.21203809318202751
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1119124751",
+          "book_title": "The Art of Change Leadership: Driving Transformation In a Fast-Paced World",
+          "cosine_similarity": 0.20992830664245937
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1930885628",
+          "book_title": "Employee's Survival Guide to Change: The complete guide to surviving and thriving during organizational change",
+          "cosine_similarity": 0.20040836617171698
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0273716204",
+          "book_title": "Organizational Change (4th Edition)",
+          "cosine_similarity": 0.1979335283737204
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0071739351",
+          "book_title": "The Why of Work: How Great Leaders Build Abundant Organizations That Win",
+          "cosine_similarity": 0.19734730265457728
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0071470441",
+          "book_title": "Managing the Dynamics of Change: The Fastest Path to Creating an Engaged and Productive Workplace",
+          "cosine_similarity": 0.19719312623494895
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1412941067",
+          "book_title": "Toolkit for Organizational Change",
+          "cosine_similarity": 0.1817806573855023
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_016",
+      "topic": "Finance and accounting",
+      "background": "Entrepreneur with no accounting background",
+      "query": "I started a small business and want to understand income statements, balance sheets, and cash flow.",
+      "success_criterion": "Beginner-friendly interpretation of financial statements for running a business.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0470040971",
+          "book_title": "Small Business Cash Flow: Strategies for Making Your Business a Financial Success",
+          "cosine_similarity": 0.37857462065652214
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0136086241",
+          "book_title": "Understanding Financial Statements",
+          "cosine_similarity": 0.3412512661028913
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0132849259",
+          "book_title": "How to Keep Score in Business: Accounting and Financial Analysis for the Non-Accountant: Accounting and Financial Analysis for the Non-Accountant (2nd Edition)",
+          "cosine_similarity": 0.303309577481318
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0071759344",
+          "book_title": "All About Short Selling (All About Series)",
+          "cosine_similarity": 0.29455657571674254
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1598691643",
+          "book_title": "Finance for Non-Financial Managers",
+          "cosine_similarity": 0.29453404148532614
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0814436943",
+          "book_title": "The Essentials of Finance and Accounting for Nonfinancial Managers",
+          "cosine_similarity": 0.28136050889427977
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0814416241",
+          "book_title": "The Essentials of Finance and Accounting for Nonfinancial Managers",
+          "cosine_similarity": 0.2782947894145536
+        },
+        {
+          "rank": 8,
+          "parent_asin": "080804690X",
+          "book_title": "Finance & Accounting for Nonfinancial Managers, 5th Edition",
+          "cosine_similarity": 0.2708822724113912
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1906403538",
+          "book_title": "Ratios: For Analysis, Control and Profit Planning",
+          "cosine_similarity": 0.25887243221195566
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0808025767",
+          "book_title": "Finance & Accounting for Nonfinancial Managers (2011)",
+          "cosine_similarity": 0.24791581391664974
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_017",
+      "topic": "Finance and accounting",
+      "background": "Profitable business owner with cash shortages",
+      "query": "My business reports a profit but often runs short of cash; I want to understand and improve working capital.",
+      "success_criterion": "Cash-flow management and working capital rather than profit alone.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1118735846",
+          "book_title": "How to Read a Financial Report: Wringing Vital Signs Out of the Numbers",
+          "cosine_similarity": 0.2265700605203184
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0132339226",
+          "book_title": "Foundations of Finance: The Logic and Practice of Financial Management",
+          "cosine_similarity": 0.21232468102963864
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0470040971",
+          "book_title": "Small Business Cash Flow: Strategies for Making Your Business a Financial Success",
+          "cosine_similarity": 0.20997893824572197
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0984909508",
+          "book_title": "How to Succeed in Business: By Really Trying!",
+          "cosine_similarity": 0.201621079181389
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0471710490",
+          "book_title": "How to Make Money Selling Stocks Short",
+          "cosine_similarity": 0.18705292824542294
+        },
+        {
+          "rank": 6,
+          "parent_asin": "073521414X",
+          "book_title": "Profit First: Transform Your Business from a Cash-Eating Monster to a Money-Making Machine",
+          "cosine_similarity": 0.18645320231314091
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0131450654",
+          "book_title": "Financial Management: Principles and Applications",
+          "cosine_similarity": 0.18614284494743716
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1598691643",
+          "book_title": "Finance for Non-Financial Managers",
+          "cosine_similarity": 0.18246427484620895
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0470554258",
+          "book_title": "Six Steps to Creating Profit: A Guide for Small and Mid-Sized Service-Based Businesses",
+          "cosine_similarity": 0.18038509819440926
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1137492511",
+          "book_title": "A Practical Guide to Corporate Finance: Breaking the Financial Ice",
+          "cosine_similarity": 0.1790273592995306
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_018",
+      "topic": "Finance and accounting",
+      "background": "Early-career professional, new investor",
+      "query": "I have my first full-time job and want to build a long-term saving and investing plan without trading stocks every day.",
+      "success_criterion": "Accessible personal finance and long-term investing principles. 101 guides to investing and saving for beginners.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1535585951",
+          "book_title": "How to Day Trade for a Living: A Beginner\u2019s Guide to Trading Tools and Tactics, Money Management, Discipline and Trading Psychology",
+          "cosine_similarity": 0.34777721049901006
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1118779606",
+          "book_title": "Day Trading For Dummies, 3rd Edition",
+          "cosine_similarity": 0.2906953366913748
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1119370310",
+          "book_title": "Trading For Dummies, 4th Edition",
+          "cosine_similarity": 0.2800658344670851
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1440595135",
+          "book_title": "Investing 101: From Stocks and Bonds to ETFs and IPOs, an Essential Primer on Building a Profitable Portfolio (Adams 101)",
+          "cosine_similarity": 0.2713942160017007
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1615648836",
+          "book_title": "Beginning Investing: Explore the Risks and Rewards for Various Investment Options (Idiot's Guides)",
+          "cosine_similarity": 0.26986425346904513
+        },
+        {
+          "rank": 6,
+          "parent_asin": "047090545X",
+          "book_title": "Investing For Dummies",
+          "cosine_similarity": 0.2660806145995655
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1118681185",
+          "book_title": "Trading For Dummies",
+          "cosine_similarity": 0.26391748729757875
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1578594863",
+          "book_title": "The Handy Investing Answer Book (The Handy Answer Book Series)",
+          "cosine_similarity": 0.2419402950906897
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0071800514",
+          "book_title": "Stocks for the Long Run 5/E: The Definitive Guide to Financial Market Returns & Long-Term Investment Strategies",
+          "cosine_similarity": 0.24171230970651345
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1497471699",
+          "book_title": "A Money Saving Mindset: 40 Ways to Help You Save",
+          "cosine_similarity": 0.23819695283401457
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_019",
+      "topic": "Finance and accounting",
+      "background": "Finance analyst evaluating businesses",
+      "query": "I have a finance background and want to learn how to value a business using its financial statements.",
+      "success_criterion": "Business valuation methods and interpretation suited to someone with finance knowledge.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1578518768",
+          "book_title": "Finance for Managers (Harvard Business Essentials)",
+          "cosine_similarity": 0.3348025039809358
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1598691643",
+          "book_title": "Finance for Non-Financial Managers",
+          "cosine_similarity": 0.3200440220385183
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0808025767",
+          "book_title": "Finance & Accounting for Nonfinancial Managers (2011)",
+          "cosine_similarity": 0.3197594729146274
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0136086241",
+          "book_title": "Understanding Financial Statements",
+          "cosine_similarity": 0.3170934020671096
+        },
+        {
+          "rank": 5,
+          "parent_asin": "080804690X",
+          "book_title": "Finance & Accounting for Nonfinancial Managers, 5th Edition",
+          "cosine_similarity": 0.30119027941517434
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0749462159",
+          "book_title": "The 30 Day MBA in Business Finance: Your Fast Track Guide to Business Success",
+          "cosine_similarity": 0.2927623354534645
+        },
+        {
+          "rank": 7,
+          "parent_asin": "111897669X",
+          "book_title": "How to Read Nonprofit Financial Statements: A Practical Guide",
+          "cosine_similarity": 0.29201539319554637
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1633696707",
+          "book_title": "How Finance Works: The HBR Guide to Thinking Smart About the Numbers",
+          "cosine_similarity": 0.2661198163228788
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0072312890",
+          "book_title": "Fundamentals of Corporate Finance: Standard Edition",
+          "cosine_similarity": 0.2657717189061871
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0071459103",
+          "book_title": "Corporate Finance Demystified",
+          "cosine_similarity": 0.26314580341722427
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_020",
+      "topic": "Finance and accounting",
+      "background": "Startup founder seeking funding",
+      "query": "I am preparing to raise money for my startup and want to understand funding options, dilution, and investor expectations.",
+      "success_criterion": "Startup financing, equity, fundraising mechanics, and investor relationships. how Venture Capital works.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.22280143194539206
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1484233921",
+          "book_title": "Startup Cities: Why Only a Few Cities Dominate the Global Startup Scene and What the Rest Should Do About It",
+          "cosine_similarity": 0.20482388673765295
+        },
+        {
+          "rank": 3,
+          "parent_asin": "053848179X",
+          "book_title": "Launching New Ventures: An Entrepreneurial Approach",
+          "cosine_similarity": 0.19590292319080488
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0470138068",
+          "book_title": "Getting Started in Options",
+          "cosine_similarity": 0.1905216749437857
+        },
+        {
+          "rank": 5,
+          "parent_asin": "111916379X",
+          "book_title": "The Startup Checklist: 25 Steps to a Scalable, High-Growth Business",
+          "cosine_similarity": 0.187120955508361
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0137142935",
+          "book_title": "The Options Trading Body of Knowledge: The Definitive Source for Information About the Options Industry",
+          "cosine_similarity": 0.1853295897043268
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0137042000",
+          "book_title": "Options Trading for the Conservative Investor: Increasing Profits Without Increasing Your Risk",
+          "cosine_similarity": 0.17938559928994194
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1118982630",
+          "book_title": "Trading Options For Dummies",
+          "cosine_similarity": 0.17456165704497803
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0071823972",
+          "book_title": "The Tech Entrepreneur's Survival Guide: How to Bootstrap Your Startup, Lead Through Tough Times, and Cash In for Success: How to Bootstrap Your ... Through Tough Times, and Cash In for Success",
+          "cosine_similarity": 0.17381865211380737
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.17105437135485582
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_021",
+      "topic": "Economics and strategy",
+      "background": "Beginner with no economics training",
+      "query": "I want to understand how markets, supply and demand, and incentives affect everyday business decisions.",
+      "success_criterion": "Accessible economic principles connected to business decisions. Stock markets beginner guide.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0691151601",
+          "book_title": "Strings Attached: Untangling the Ethics of Incentives",
+          "cosine_similarity": 0.3808124533920946
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0471384992",
+          "book_title": "Managing the Demand-Supply Chain",
+          "cosine_similarity": 0.30819362109736687
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1118218310",
+          "book_title": "Bricks Matter: The Role of Supply Chains in Building Market-Driven Differentiation",
+          "cosine_similarity": 0.2548375855824239
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1604270144",
+          "book_title": "Managing Global Supply and Risk: Best Practices, Concepts, and Strategies",
+          "cosine_similarity": 0.252811999306858
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0136055486",
+          "book_title": "Principles of Economics",
+          "cosine_similarity": 0.2501156706870236
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0132552914",
+          "book_title": "Principles of Economics",
+          "cosine_similarity": 0.24733070459240683
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0273730401",
+          "book_title": "Dynamic Supply Chains: Delivering Value Through People",
+          "cosine_similarity": 0.24590993609486408
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1610399897",
+          "book_title": "Guide to Financial Markets: Why They Exist and How They Work (Economist Books)",
+          "cosine_similarity": 0.24578231793198174
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0131388851",
+          "book_title": "Principles of Microeconomics (The Pearson Series in Economics)",
+          "cosine_similarity": 0.2432958091399905
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0470531886",
+          "book_title": "Supply Chain Management Best Practices",
+          "cosine_similarity": 0.24320255670805319
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_022",
+      "topic": "Economics and strategy",
+      "background": "Business owner facing rising costs",
+      "query": "I run a business and want to understand how inflation and interest rates affect costs, customers, and planning.",
+      "success_criterion": "Macroeconomic forces and their practical implications for a business.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0471739189",
+          "book_title": "Cost Reduction and Control Best Practices: The Best Ways for a Financial Manager to Save Money",
+          "cosine_similarity": 0.26796458198681505
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0716792834",
+          "book_title": "International Economics",
+          "cosine_similarity": 0.24770467803907856
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0375505482",
+          "book_title": "The Great Inflation and Its Aftermath: The Past and Future of American Affluence",
+          "cosine_similarity": 0.22641801079693022
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0881326275",
+          "book_title": "Flexible Exchange Rates for a Stable World Economy",
+          "cosine_similarity": 0.21507120129313767
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1419596128",
+          "book_title": "Successful Real Estate Investing in a Boom or Bust Market: Understand the Economics of Real Estate, Identify Which Market You're In, Foolproof Your Profits and Minimize Risk",
+          "cosine_similarity": 0.2106471660788185
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1601389051",
+          "book_title": "How to Open & Operate a Financially Successful Coffee, Espresso and Tea Shop (How to Open and Operate a Financially Successful...)",
+          "cosine_similarity": 0.2095825775104609
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0615732941",
+          "book_title": "Retiree Lifeline! How to Get the Government Out of Your Pocket",
+          "cosine_similarity": 0.20955838104251162
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0691172137",
+          "book_title": "The Curse of Cash",
+          "cosine_similarity": 0.20172800677052707
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0132552914",
+          "book_title": "Principles of Economics",
+          "cosine_similarity": 0.19465693534081438
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0137024975",
+          "book_title": "Management Accounting: Information for Decision-Making and Strategy Execution (6th Edition)",
+          "cosine_similarity": 0.19173098148086673
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_023",
+      "topic": "Economics and strategy",
+      "background": "Manager responsible for strategy",
+      "query": "I need to develop a competitive strategy for a business that faces several larger competitors.",
+      "success_criterion": "Competitive positioning and practical strategic choices. How to analyze competitors and differentiate a business.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1119120837",
+          "book_title": "Contemporary Strategy Analysis Text Only",
+          "cosine_similarity": 0.20125834462362227
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0470747102",
+          "book_title": "Contemporary Strategy Analysis: Text Only",
+          "cosine_similarity": 0.1775987480923435
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0132061422",
+          "book_title": "Strategic Analysis and Action",
+          "cosine_similarity": 0.17446834577564674
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0470717122",
+          "book_title": "The Impossible Advantage: Winning the Competitive Game by Changing the Rules",
+          "cosine_similarity": 0.16999051070999507
+        },
+        {
+          "rank": 5,
+          "parent_asin": "041587503X",
+          "book_title": "Strategic Thinking: Today\u2019s Business Imperative",
+          "cosine_similarity": 0.1697662306275817
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1505443059",
+          "book_title": "The Strategy Mindset",
+          "cosine_similarity": 0.1683806652619146
+        },
+        {
+          "rank": 7,
+          "parent_asin": "142212116X",
+          "book_title": "The Execution Premium: Linking Strategy to Operations for Competitive Advantage",
+          "cosine_similarity": 0.16806138681169155
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0078029287",
+          "book_title": "Essentials of Strategic Management: The Quest for Competitive Advantage",
+          "cosine_similarity": 0.15574081889930483
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1591391679",
+          "book_title": "Hardball: Are You Playing to Play or Playing to Win",
+          "cosine_similarity": 0.14939333266269195
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0077537076",
+          "book_title": "Crafting and Executing Strategy: Concepts and Readings (Crafting & Executing Strategy: Text and Readings)",
+          "cosine_similarity": 0.1485858731918782
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_024",
+      "topic": "Economics and strategy",
+      "background": "Operations manager",
+      "query": "I manage operations and want to identify bottlenecks and improve throughput without simply hiring more people.",
+      "success_criterion": "Process improvement, constraints, and operational flow.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0230232590",
+          "book_title": "Essential Operations Management",
+          "cosine_similarity": 0.16244273510744592
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0988957418",
+          "book_title": "The Essential Guide for Hiring & Getting Hired: Performance-based Hiring Series",
+          "cosine_similarity": 0.1598507466580999
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1781006229",
+          "book_title": "Service Operations Management: The Total Experience",
+          "cosine_similarity": 0.1537874144544215
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1440831440",
+          "book_title": "Mastering the Art of Recruiting: How to Hire the Right Candidate for the Job",
+          "cosine_similarity": 0.1398337182716646
+        },
+        {
+          "rank": 5,
+          "parent_asin": "053874555X",
+          "book_title": "OM (Book Only)",
+          "cosine_similarity": 0.13925242804715735
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1593374038",
+          "book_title": "Hiring the Best: Manager's Guide to Effective Interviewing and Recruiting, Fifth Edition",
+          "cosine_similarity": 0.13746791290583688
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0073525251",
+          "book_title": "Operations Management (Operations and Decision Sciences)",
+          "cosine_similarity": 0.13221512988353806
+        },
+        {
+          "rank": 8,
+          "parent_asin": "007178585X",
+          "book_title": "Hiring for Attitude: A Revolutionary Approach to Recruiting and Selecting People with Both Tremendous Skills and Superb Attitude",
+          "cosine_similarity": 0.12765312889513622
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0132747324",
+          "book_title": "Introduction to Operations and Supply Chain Management",
+          "cosine_similarity": 0.1256297144122623
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0832950017",
+          "book_title": "Hire, Fire, and the Walking Dead: A Leader's Guide to Recruiting the Best",
+          "cosine_similarity": 0.12425524599444418
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_025",
+      "topic": "Economics and strategy",
+      "background": "Business owner considering expansion",
+      "query": "My business works well locally and I want to understand the risks and decisions involved in expanding internationally.",
+      "success_criterion": "International business expansion, market entry, and cross-border operational risks.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1443411817",
+          "book_title": "Decisions: Making The Right Ones, Righting The Wrong Ones",
+          "cosine_similarity": 0.19297619636534047
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.1723270071537643
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0785271414",
+          "book_title": "Business By The Book Complete Guide Of Biblical Principles For The Workplace",
+          "cosine_similarity": 0.17162675938924069
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0761924221",
+          "book_title": "Making Better Business Decisions: Understanding and Improving Critical Thinking and Problem Solving Skills",
+          "cosine_similarity": 0.1619838673532487
+        },
+        {
+          "rank": 5,
+          "parent_asin": "111883366X",
+          "book_title": "Decision Making For Dummies",
+          "cosine_similarity": 0.1618625928243626
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1427797927",
+          "book_title": "The Radical Leap: A Personal Lesson in Extreme Leadership",
+          "cosine_similarity": 0.1612509387728172
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1933895098",
+          "book_title": "Six-Week Start-Up: A Step-By-Step Program for Starting Your Business, Making Money, and Achieving Your Goals!",
+          "cosine_similarity": 0.1594205977745514
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0984909508",
+          "book_title": "How to Succeed in Business: By Really Trying!",
+          "cosine_similarity": 0.15745342645226137
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1519404638",
+          "book_title": "Turn Your Computer Into a Money Machine: How to make money from home and grow your income fast, with no prior experience! Set up within a week!",
+          "cosine_similarity": 0.1527403458071379
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0273729845",
+          "book_title": "Financial Times Guide to Making the Right Investment Decisions, The: How to Analyse Companies and Value Shares (The FT Guides)",
+          "cosine_similarity": 0.1523166992855184
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_026",
+      "topic": "Careers and people",
+      "background": "Finance professional changing careers",
+      "query": "I work in finance and want to move into product management; I need to understand the role and how to make the transition.",
+      "success_criterion": "Product-management responsibilities and practical career-transition guidance. Career switching stories.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0321605780",
+          "book_title": "Agile Product Management with Scrum: Creating Products that Customers Love (Addison-Wesley Signature Series (Cohn))",
+          "cosine_similarity": 0.3316523899642547
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1119264022",
+          "book_title": "Product Management For Dummies",
+          "cosine_similarity": 0.32481189508154407
+        },
+        {
+          "rank": 3,
+          "parent_asin": "007180546X",
+          "book_title": "The Product Manager's Survival Guide: Everything You Need to Know to Succeed as a Product Manager",
+          "cosine_similarity": 0.3211105240721666
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1633696707",
+          "book_title": "How Finance Works: The HBR Guide to Thinking Smart About the Numbers",
+          "cosine_similarity": 0.27217603112086786
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1491982276",
+          "book_title": "Product Management in Practice: A Real-World Guide to the Key Connective Role of the 21st Century",
+          "cosine_similarity": 0.26291893201711874
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0761927093",
+          "book_title": "Economic Development Finance",
+          "cosine_similarity": 0.26058901217687225
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0875843026",
+          "book_title": "Becoming a Manager: Mastery of a New Identity",
+          "cosine_similarity": 0.2539826577040199
+        },
+        {
+          "rank": 8,
+          "parent_asin": "0137137478",
+          "book_title": "From Concept to Consumer: How to Turn Ideas Into Money",
+          "cosine_similarity": 0.2523766617721986
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1599792176",
+          "book_title": "Caught Between A Dream And A Job: How to Leave the 9 to-5 Behind and Step Into the Life You've Always Wanted",
+          "cosine_similarity": 0.24641050354806457
+        },
+        {
+          "rank": 10,
+          "parent_asin": "0787963712",
+          "book_title": "Losing Your Executive Director Without Losing Your Way: The Nonprofit's Guide to Executive Turnover",
+          "cosine_similarity": 0.24291673997388222
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_027",
+      "topic": "Careers and people",
+      "background": "Professional negotiating a job offer",
+      "query": "I have received a job offer and want to negotiate salary and responsibilities constructively.",
+      "success_criterion": "Job-offer negotiation and preparation applicable to an individual professional. Salary negotiation strategies.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1518862276",
+          "book_title": "Barracks To Boardrooms: Negotiating Your Salary After Serving In The Military",
+          "cosine_similarity": 0.28920681847067725
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0991271416",
+          "book_title": "How To Negotiate Your First Job: 8 Steps that will create value for you and your new employer",
+          "cosine_similarity": 0.286139454598538
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0898158907",
+          "book_title": "Negotiating Your Salary: How to Make $1,000 a Minute",
+          "cosine_similarity": 0.23039757018571405
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1118112903",
+          "book_title": "Job Interviews For Dummies",
+          "cosine_similarity": 0.220037251574607
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0971356904",
+          "book_title": "10 Insider Secrets To Job Hunting Success! Everything You Need To Get The Job You Want In 24 Hours -- Or Less!",
+          "cosine_similarity": 0.21184830667726426
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1601630883",
+          "book_title": "Winning Job Interviews, Revised Edition",
+          "cosine_similarity": 0.20098268423389115
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1598697811",
+          "book_title": "Knock'em Dead 2010: The Ultimate Job Search Guide",
+          "cosine_similarity": 0.1992441410505928
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1402728263",
+          "book_title": "Your Next Move: Yahoo! HotJobs Success Strategies for Midcareer Professionals (HotJobs Career Advisors)",
+          "cosine_similarity": 0.19286623365593614
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1564147401",
+          "book_title": "10 Insider Secrets to a Winning Job Search: Everything You Need to Get the Job You Want in 24 Hours or Less",
+          "cosine_similarity": 0.18740992903183068
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1456528149",
+          "book_title": "Five Steps to Your Next Job: A Powerful Manual for Job Search and Career Development",
+          "cosine_similarity": 0.17289616199649352
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_028",
+      "topic": "Careers and people",
+      "background": "Small business owner hiring for the first time",
+      "query": "I am hiring my first employees and want to learn how to select candidates and onboard them well.",
+      "success_criterion": "Practical hiring and onboarding for a small business. Best practices when hiring for my business.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.268251694320295
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0615421644",
+          "book_title": "Hiring 3.0: New Rules For The New Economy",
+          "cosine_similarity": 0.21867005575877407
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0988957418",
+          "book_title": "The Essential Guide for Hiring & Getting Hired: Performance-based Hiring Series",
+          "cosine_similarity": 0.21816324130503545
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1593374038",
+          "book_title": "Hiring the Best: Manager's Guide to Effective Interviewing and Recruiting, Fifth Edition",
+          "cosine_similarity": 0.21102770205621735
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0785214127",
+          "book_title": "Put Your Dream to the Test: 10 Questions That Will Help You See It and Seize It",
+          "cosine_similarity": 0.19654269614790076
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0832950017",
+          "book_title": "Hire, Fire, and the Walking Dead: A Leader's Guide to Recruiting the Best",
+          "cosine_similarity": 0.19165121711378807
+        },
+        {
+          "rank": 7,
+          "parent_asin": "007178585X",
+          "book_title": "Hiring for Attitude: A Revolutionary Approach to Recruiting and Selecting People with Both Tremendous Skills and Superb Attitude",
+          "cosine_similarity": 0.1869926394643929
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1422170012",
+          "book_title": "What to Ask the Person in the Mirror: Critical Questions for Becoming a More Effective Leader and Reaching Your Potential",
+          "cosine_similarity": 0.17551182367313237
+        },
+        {
+          "rank": 9,
+          "parent_asin": "B002RAR2HA",
+          "book_title": "Hiring The Best: A Manager's Guide to Effective Interviewing and Recruiting",
+          "cosine_similarity": 0.1707890310049723
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1427797927",
+          "book_title": "The Radical Leap: A Personal Lesson in Extreme Leadership",
+          "cosine_similarity": 0.1627164197654481
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_029",
+      "topic": "Careers and people",
+      "background": "Manager rebuilding team culture",
+      "query": "My team has low trust and morale, and I want to build a healthier workplace culture.",
+      "success_criterion": "Trust, psychological safety, and actionable workplace-culture practices.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "0814437664",
+          "book_title": "Trust Factor: The Science of Creating High-Performance Companies",
+          "cosine_similarity": 0.2483860274372427
+        },
+        {
+          "rank": 2,
+          "parent_asin": "0891062556",
+          "book_title": "Emotional Intelligence for Managing Results in a Diverse World: The Hard Truth about Soft Skills in the Workplace",
+          "cosine_similarity": 0.22986336048490275
+        },
+        {
+          "rank": 3,
+          "parent_asin": "0071461949",
+          "book_title": "Trust-Based Selling: Using Customer Focus and Collaboration to Build Long-Term Relationships",
+          "cosine_similarity": 0.21277559000541277
+        },
+        {
+          "rank": 4,
+          "parent_asin": "1250093465",
+          "book_title": "The Code of Trust: An American Counterintelligence Expert's Five Rules to Lead and Succeed",
+          "cosine_similarity": 0.20383406222030542
+        },
+        {
+          "rank": 5,
+          "parent_asin": "1413313167",
+          "book_title": "Make Your Own Living Trust",
+          "cosine_similarity": 0.19284968655314233
+        },
+        {
+          "rank": 6,
+          "parent_asin": "0071629408",
+          "book_title": "90 Days to a High-Performance Team: A Complete Problem-solving Strategy to Help Your Team Thirve in any Environment",
+          "cosine_similarity": 0.18945745076646262
+        },
+        {
+          "rank": 7,
+          "parent_asin": "1400280257",
+          "book_title": "Teamwork 101: What Every Leader Needs to Know (101 (Thomas Nelson))",
+          "cosine_similarity": 0.18394461971822929
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1118636708",
+          "book_title": "You First: Inspire Your Team to Grow Up, Get Along, and Get Stuff Done",
+          "cosine_similarity": 0.18110816894892692
+        },
+        {
+          "rank": 9,
+          "parent_asin": "1848444648",
+          "book_title": "Trust and Human Resource Management",
+          "cosine_similarity": 0.18006651602603405
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1610143973",
+          "book_title": "The Wisdom of Ants: 10 Commandments ofTrust",
+          "cosine_similarity": 0.17669733469350565
+        }
+      ]
+    },
+    {
+      "query_id": "business_money_030",
+      "topic": "Careers and people",
+      "background": "Self-employed professional managing many projects",
+      "query": "I am self-employed and want a practical system for prioritizing work and managing several client projects.",
+      "success_criterion": "Work organization and prioritization for a busy independent professional. Project Management techniques.",
+      "books": [
+        {
+          "rank": 1,
+          "parent_asin": "1572485760",
+          "book_title": "Tax Power for the Self-Employed: Straightforward Advice from an Expert",
+          "cosine_similarity": 0.2894484858718643
+        },
+        {
+          "rank": 2,
+          "parent_asin": "1575423545",
+          "book_title": "Doing Good Together: 101 Easy, Meaningful Service Projects for Families, Schools, and Communities",
+          "cosine_similarity": 0.24232258692174638
+        },
+        {
+          "rank": 3,
+          "parent_asin": "1400280230",
+          "book_title": "Success 101: What Every Leader Should Know",
+          "cosine_similarity": 0.22198435500608896
+        },
+        {
+          "rank": 4,
+          "parent_asin": "0470380284",
+          "book_title": "All For One: 10 Strategies for Building Trusted Client Partnerships",
+          "cosine_similarity": 0.17851761006627856
+        },
+        {
+          "rank": 5,
+          "parent_asin": "0307453669",
+          "book_title": "The Money Book for Freelancers, Part-Timers, and the Self-Employed: The Only Personal Finance System for People with Not-So-Regular Jobs",
+          "cosine_similarity": 0.1718207060192955
+        },
+        {
+          "rank": 6,
+          "parent_asin": "1622037278",
+          "book_title": "The Four Virtues of a Leader: Navigating the Hero's Journey Through Risk to Results",
+          "cosine_similarity": 0.17045003658973568
+        },
+        {
+          "rank": 7,
+          "parent_asin": "0471250414",
+          "book_title": "Revolutionizing IT: The Art of Using Information Technology Effectively",
+          "cosine_similarity": 0.16821319735583032
+        },
+        {
+          "rank": 8,
+          "parent_asin": "1118022033",
+          "book_title": "Managing Projects: A Practical Guide for LearningProfessionals",
+          "cosine_similarity": 0.16757225862314254
+        },
+        {
+          "rank": 9,
+          "parent_asin": "0313355347",
+          "book_title": "Breaking Free: How to Quit Your Job and Start Your Own Business",
+          "cosine_similarity": 0.1647516688822628
+        },
+        {
+          "rank": 10,
+          "parent_asin": "1944194037",
+          "book_title": "Toxic Client: Knowing and Avoiding Problem Customers",
+          "cosine_similarity": 0.16437573227568197
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": "gold-v1-draft",
+  "status": "Draft queries awaiting user review; no relevance labels assigned.",
+  "scope": "Saved Business & Money catalog; proposed learning-goal scenarios.",
+  "queries": [
+    {
+      "query_id": "online_business_finance_001",
+      "topic": "Entrepreneurship",
+      "background": "Finance professional",
+      "query": "I want to know what is needed to start a online business, given that i  have a finance background",
+      "success_criterion": "Practical guidance on starting an online business; finance experience is context, not a request for investment advice."
+    },
+    {
+      "query_id": "business_money_002",
+      "topic": "Entrepreneurship",
+      "background": "Software engineer, new to business",
+      "query": "I am a software engineer and want to validate a business idea before spending months building a product.",
+      "success_criterion": "Customer discovery and testing demand before product development."
+    },
+    {
+      "query_id": "business_money_003",
+      "topic": "Entrepreneurship",
+      "background": "Teacher with a full-time job",
+      "query": "I work full time as a teacher and want to start a small side business without quitting my job.",
+      "success_criterion": "Practical side-business planning with limited time and low financial risk."
+    },
+    {
+      "query_id": "business_money_004",
+      "topic": "Entrepreneurship",
+      "background": "Designer, no business experience",
+      "query": "I am a designer and want to turn my freelance work into a sustainable consulting business.",
+      "success_criterion": "Finding clients, defining services, pricing, and running a small service business, biographies of other designers that started similar businesses."
+    },
+    {
+      "query_id": "business_money_005",
+      "topic": "Entrepreneurship",
+      "background": "Small retail business owner",
+      "query": "I own a small physical shop and want to begin selling my products online.",
+      "success_criterion": "Moving a retail business into e-commerce, including fulfillment and online customer acquisition."
+    },
+    {
+      "query_id": "business_money_006",
+      "topic": "Marketing and sales",
+      "background": "New online business owner",
+      "query": "I have launched an online store and want to attract my first customers with a small marketing budget.",
+      "success_criterion": "Practical customer acquisition for a new online store with limited resources. Success stories of companies that started with limited budgets."
+    },
+    {
+      "query_id": "business_money_007",
+      "topic": "Marketing and sales",
+      "background": "Technical founder, little sales experience",
+      "query": "I am a technical founder and need to learn how to sell software to other businesses.",
+      "success_criterion": "Business-to-business sales (B2B), prospecting, conversations, and closing customers. Case studies of successful technical founders in B2B sales."
+    },
+    {
+      "query_id": "business_money_008",
+      "topic": "Marketing and sales",
+      "background": "Freelancer who undercharges",
+      "query": "I am a freelancer and want to price my services confidently instead of competing only on low prices.",
+      "success_criterion": "Service pricing, value communication, and negotiating fees. Freelance stories."
+    },
+    {
+      "query_id": "business_money_009",
+      "topic": "Marketing and sales",
+      "background": "Small business owner with repeat customers",
+      "query": "I run a small business and want to improve customer retention rather than relying on constant advertising.",
+      "success_criterion": "Understanding customer loyalty, service, and repeat purchases."
+    },
+    {
+      "query_id": "business_money_010",
+      "topic": "Marketing and sales",
+      "background": "Product designer moving into marketing",
+      "query": "I understand product design but want to learn how to position a new product and communicate why customers should choose it.",
+      "success_criterion": "Positioning, differentiation, and clear customer-focused messaging."
+    },
+    {
+      "query_id": "business_money_011",
+      "topic": "Management and leadership",
+      "background": "Recently promoted individual contributor",
+      "query": "I have just become a manager and need to learn how to lead people, give feedback, and delegate.",
+      "success_criterion": "Accessible first-manager guidance with practical people-management tools. Leadership books and different management styles."
+    },
+    {
+      "query_id": "business_money_012",
+      "topic": "Management and leadership",
+      "background": "Manager of a distributed team",
+      "query": "I manage a remote team and want to improve communication and accountability without micromanaging.",
+      "success_criterion": "Distributed-team coordination, expectations, trust, and accountability. How Remote work works and how to manage remote teams."
+    },
+    {
+      "query_id": "business_money_013",
+      "topic": "Management and leadership",
+      "background": "Experienced manager facing conflict",
+      "query": "I manage an experienced team but need help having difficult conversations about poor performance.",
+      "success_criterion": "Constructive feedback and performance conversations with concrete techniques. Leading through inspiring."
+    },
+    {
+      "query_id": "business_money_014",
+      "topic": "Management and leadership",
+      "background": "Founder whose company is growing",
+      "query": "My small company is growing and I need to build processes so every decision does not depend on me.",
+      "success_criterion": "Delegation, operating systems, and repeatable processes for a growing company. Similar stories of founders who successfully scaled their companies."
+    },
+    {
+      "query_id": "business_money_015",
+      "topic": "Management and leadership",
+      "background": "Department leader introducing change",
+      "query": "I lead a department and need to help employees adopt a major change in how we work.",
+      "success_criterion": "Organizational change, employee engagement, and implementation."
+    },
+    {
+      "query_id": "business_money_016",
+      "topic": "Finance and accounting",
+      "background": "Entrepreneur with no accounting background",
+      "query": "I started a small business and want to understand income statements, balance sheets, and cash flow.",
+      "success_criterion": "Beginner-friendly interpretation of financial statements for running a business."
+    },
+    {
+      "query_id": "business_money_017",
+      "topic": "Finance and accounting",
+      "background": "Profitable business owner with cash shortages",
+      "query": "My business reports a profit but often runs short of cash; I want to understand and improve working capital.",
+      "success_criterion": "Cash-flow management and working capital rather than profit alone."
+    },
+    {
+      "query_id": "business_money_018",
+      "topic": "Finance and accounting",
+      "background": "Early-career professional, new investor",
+      "query": "I have my first full-time job and want to build a long-term saving and investing plan without trading stocks every day.",
+      "success_criterion": "Accessible personal finance and long-term investing principles. 101 guides to investing and saving for beginners."
+    },
+    {
+      "query_id": "business_money_019",
+      "topic": "Finance and accounting",
+      "background": "Finance analyst evaluating businesses",
+      "query": "I have a finance background and want to learn how to value a business using its financial statements.",
+      "success_criterion": "Business valuation methods and interpretation suited to someone with finance knowledge."
+    },
+    {
+      "query_id": "business_money_020",
+      "topic": "Finance and accounting",
+      "background": "Startup founder seeking funding",
+      "query": "I am preparing to raise money for my startup and want to understand funding options, dilution, and investor expectations.",
+      "success_criterion": "Startup financing, equity, fundraising mechanics, and investor relationships. how Venture Capital works."
+    },
+    {
+      "query_id": "business_money_021",
+      "topic": "Economics and strategy",
+      "background": "Beginner with no economics training",
+      "query": "I want to understand how markets, supply and demand, and incentives affect everyday business decisions.",
+      "success_criterion": "Accessible economic principles connected to business decisions. Stock markets beginner guide."
+    },
+    {
+      "query_id": "business_money_022",
+      "topic": "Economics and strategy",
+      "background": "Business owner facing rising costs",
+      "query": "I run a business and want to understand how inflation and interest rates affect costs, customers, and planning.",
+      "success_criterion": "Macroeconomic forces and their practical implications for a business."
+    },
+    {
+      "query_id": "business_money_023",
+      "topic": "Economics and strategy",
+      "background": "Manager responsible for strategy",
+      "query": "I need to develop a competitive strategy for a business that faces several larger competitors.",
+      "success_criterion": "Competitive positioning and practical strategic choices. How to analyze competitors and differentiate a business."
+    },
+    {
+      "query_id": "business_money_024",
+      "topic": "Economics and strategy",
+      "background": "Operations manager",
+      "query": "I manage operations and want to identify bottlenecks and improve throughput without simply hiring more people.",
+      "success_criterion": "Process improvement, constraints, and operational flow."
+    },
+    {
+      "query_id": "business_money_025",
+      "topic": "Economics and strategy",
+      "background": "Business owner considering expansion",
+      "query": "My business works well locally and I want to understand the risks and decisions involved in expanding internationally.",
+      "success_criterion": "International business expansion, market entry, and cross-border operational risks."
+    },
+    {
+      "query_id": "business_money_026",
+      "topic": "Careers and people",
+      "background": "Finance professional changing careers",
+      "query": "I work in finance and want to move into product management; I need to understand the role and how to make the transition.",
+      "success_criterion": "Product-management responsibilities and practical career-transition guidance. Career switching stories."
+    },
+    {
+      "query_id": "business_money_027",
+      "topic": "Careers and people",
+      "background": "Professional negotiating a job offer",
+      "query": "I have received a job offer and want to negotiate salary and responsibilities constructively.",
+      "success_criterion": "Job-offer negotiation and preparation applicable to an individual professional. Salary negotiation strategies."
+    },
+    {
+      "query_id": "business_money_028",
+      "topic": "Careers and people",
+      "background": "Small business owner hiring for the first time",
+      "query": "I am hiring my first employees and want to learn how to select candidates and onboard them well.",
+      "success_criterion": "Practical hiring and onboarding for a small business. Best practices when hiring for my business."
+    },
+    {
+      "query_id": "business_money_029",
+      "topic": "Careers and people",
+      "background": "Manager rebuilding team culture",
+      "query": "My team has low trust and morale, and I want to build a healthier workplace culture.",
+      "success_criterion": "Trust, psychological safety, and actionable workplace-culture practices."
+    },
+    {
+      "query_id": "business_money_030",
+      "topic": "Careers and people",
+      "background": "Self-employed professional managing many projects",
+      "query": "I am self-employed and want a practical system for prioritizing work and managing several client projects.",
+      "success_criterion": "Work organization and prioritization for a busy independent professional. Project Management techniques."
+    }
+  ]
+}

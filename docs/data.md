@@ -105,6 +105,8 @@ Our EDA identifies missing values and empty collections but does not establish
 their underlying causes. **We have not assigned a confirmed MCAR, MAR, or MNAR
 mechanism to the source data.** Observed data alone cannot distinguish MAR from
 MNAR; see [Sterne and colleagues (2009)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2714692/).
+The original framework is [Rubin (1976)](https://doi.org/10.1093/biomet/63.3.581);
+the complete source list is in [references.md](references.md).
 
 Nulls, blank strings (`""`), and empty collections (`[]`) describe how absence
 appears in the dataset, rather than why it happened. These distinctions are
@@ -830,19 +832,84 @@ output-file protection.
 **Next:** Compare TOC-only retrieval with TOC plus the selected book-level text.
 Choose a model and its tokenizer, handle long documents according to its input
 limit, and evaluate ranked books against a small set of learning goals and
-relevance judgments. No vectors or retrieval scores have been produced yet.
+relevance judgments. Baseline 0 below now supplies TF-IDF vectors and cosine
+rankings from the combined document text. The TOC-only comparison and embedding
+models remain pending.
 
 ## Evaluation design before choosing retrieval features
 
 The EDA notebooks remain descriptive. Separate TOC and document datasets now
 implement the version 1 text choices for the first baseline.
-No train/test split, fitted transformation, resampling, embedding model, or
-ranking evaluation has been created. Retrieval evaluation still needs to
+No evaluation-query split, resampling, embedding model, or scored ranking
+evaluation has been created. Baseline 0 now fits TF-IDF on the saved catalog;
+retrieval evaluation still needs to
 establish whether these text rules help recommendations.
 
 The comparison table and proposed scoring rules are in [metrics.md](metrics.md).
 It tracks nDCG@5, Recall@10, MRR, and Precision@5 for each evaluated method;
 no benchmark scores have been measured yet.
+
+`benchmarks/gold_v1/queries.json` now contains 30 draft learning goals, with five
+each for entrepreneurship, marketing/sales, management/leadership,
+finance/accounting, economics/strategy, and careers/people. These are proposed
+scenarios reviewed and edited by the user, not a sample of real user demand or
+a labeled gold standard. The planned five-query pilot uses TF-IDF candidates
+plus independently found books; the user supplies reviewed relevance grades.
+TF-IDF candidates are now available; additional sources and labels are pending. See the
+[labeling workflow](../benchmarks/gold_v1/README.md).
+
+`bookpath.candidates` ran the unchanged baseline 0 on the exact query text for
+all 30 records. Background and success criteria are judgment context, not
+additional retrieval input. The full local rankings have **271,020 rows**
+(30 × 9,034 books). The top-ten review lists contain **300 query–book pairs**
+and **242 distinct books**. The first query's complete ranking matches baseline
+0 exactly. [Notebook 07](../notebooks/07_tfidf_candidates_review.ipynb) shows the
+edited criteria, candidates, and original book evidence. All four code cells
+passed, validating all candidate lists against the recorded complete rankings.
+The offline suite passed **81 tests**. No relevance grades have been assigned.
+
+The next user task is the [five-query labeling pilot](../benchmarks/gold_v1/README.md#your-next-task):
+50 current query–book pairs, graded 0–3 using each goal, background, and success
+criterion. Additional candidate sources and a shared, frozen judgment version
+are needed for comparisons with later methods. This uses Stanford's
+[relevance assessment and pooling approach](https://nlp.stanford.edu/IR-book/html/htmledition/assessing-relevance-1.html).
+Supporting references for evaluation, TF-IDF, source metadata, and missingness
+are collected in [references.md](references.md).
+
+The [GitHub Actions test workflow](../.github/workflows/tests.yml) installs
+locked dependencies and runs the offline tests on pushes and pull requests.
+It does not rely on ignored local datasets. A green test check verifies code
+behavior, while the four recommendation-quality metrics remain unmeasured.
+
+### Baseline 0: TF-IDF and cosine retrieval (2026-10-08)
+
+`bookpath.tfidf` joins the 150,496 prepared document texts into one text per
+`parent_asin`, retaining their saved order and keeping book titles as metadata.
+`bookpath.baseline0` fits scikit-learn's default TF-IDF vectorizer on all 9,034
+candidate books and transforms the unchanged online-business/finance query.
+Cosine similarity ranks every book, with ascending `parent_asin` resolving ties.
+There is no query rewriting, tuning, reranking, or additional text filtering.
+Existing repeated and numeric-only text remains part of the input.
+
+The run produced **56,594 vocabulary terms** and a complete **9,034-book ranking**.
+The first result is *Don’t Sleep on It: Turn Your Passion & Expertise into a
+Profitable Online Business*, `parent_asin = 1683509854`, with cosine similarity
+0.2618. Three distinct parent records titled *Investing Online For Dummies*
+appear at ranks 3–5; no work/edition grouping was added for this baseline.
+These are retrieval observations, not established relevance or quality scores.
+
+The full ranking and run metadata are local files under
+`data/evaluation/baseline_0`. A small copy of the metadata and top ten results
+is recorded in `benchmarks/baseline_0/run.json`. It records the exact query,
+input checksums, code checksums, library versions, and vectorizer parameters.
+[Notebook 06](../notebooks/06_tfidf_baseline_0.ipynb) rebuilds the ranking in
+memory and checks that it matches the saved result and that inputs are unchanged.
+All five code cells passed, reproducing every rank and cosine score exactly.
+The full offline suite passed **77 tests**, including exact-match cosine scores,
+no-overlap and out-of-vocabulary queries, stable ties, input preservation, and
+protection of existing run outputs.
+The four retrieval metrics remain unmeasured because there are no independent
+relevance judgments. Baseline 0 has not demonstrated recommendation quality.
 
 The full saved catalog has been inspected, so it is development evidence, not
 an untouched test set. Before using these observations to choose modeling or
