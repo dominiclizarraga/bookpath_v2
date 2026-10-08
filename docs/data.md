@@ -672,16 +672,16 @@ matches the raw file, and both saved Parquet files remain unchanged.
 
 **Decisions for the first retrieval baseline:**
 
-| Decision | Planned pipeline behavior |
+| Decision | Behavior when creating documents |
 | --- | --- |
 | Input | Read `data/processed/toc_features.parquet`. |
 | Text and identifiers | Use `feature_text`; retain `parent_asin` and `raw_position` to trace each item. |
-| Missing text | Keep every row in the prepared file. Skip missing or blank `feature_text` when creating embeddings. |
+| Missing text | Keep every row in the prepared TOC file. Omit missing or blank `feature_text` from the document table that will supply embedding input. |
 | Numeric and repeated text | Keep these items initially, with their flags. Evaluate whether filtering improves retrieval before changing that choice. |
 
-These decisions are recorded in notebook 03's closing section. They describe
-the next pipeline step; embedding generation and retrieval are not implemented
-by this notebook or `toc.py`.
+These decisions are recorded in notebook 03's closing section and implemented
+by `documents.py` and `pipeline.py`, described below. Embedding generation and
+retrieval remain later steps.
 
 The current preparation is the version 1 candidate. It has not demonstrated
 better recommendations, and matching saved TOC copies does not establish that
@@ -757,12 +757,85 @@ columns, including order: all 324,798 pieces across 9,034 books match exactly.
 Coverage totals and the raw file's unchanged SHA-256 were also checked.
 The preservation check also rejected deliberately edited and reordered pieces
 in temporary copies of each column, even when their counts stayed the same.
-No processed dataset was written.
+No processed dataset was written by notebook 04.
+
+## Document preparation: version 1 (2026-10-03)
+
+The EDA decisions now produce a separate local text table through
+[src/bookpath/documents.py](../src/bookpath/documents.py) and
+[src/bookpath/pipeline.py](../src/bookpath/pipeline.py). Run from the repository root:
+
+```sh
+uv run python -m bookpath.pipeline
+```
+
+The inputs are `data/raw/books.parquet` and
+`data/processed/toc_features.parquet`. The output is
+`data/processed/documents.parquet`, with **150,496 rows and 11 columns**.
+All three files remain local and are ignored by Git. A document is one selected
+source text associated with a book, such as a TOC heading or a book-level
+description; it is not the full book or chapter body.
+
+| Source | Document rows | Distinct book records |
+| --- | ---: | ---: |
+| Prepared TOC `feature_text` | 141,495 | 9,034 |
+| Joined Amazon `features` | 8,991 | 8,991 |
+| Joined Amazon `description`, only when features is empty | 10 | 10 |
+| **Total** | **150,496** | **9,034** |
+
+Document counts add up; books overlap across sources, so the final book count
+counts each book once. **33 books have TOC documents only**, and every book in
+this snapshot supplies at least one document.
+
+The builder copies nonblank TOC `feature_text` exactly, retaining original
+positions and the 435 numeric-only and 2,916 repeated-text flags. Those flags
+can overlap. The 18 TOC items without text are omitted from the document table
+and remain in the original TOC preparation file. For book-level text, each
+piece is trimmed at its ends and nonblank pieces are joined with line breaks
+in their saved order. Features takes priority; description is used only when
+features has no nonblank text. No repeated text is removed, and no text is
+truncated or split into model-sized passages.
+
+`build_documents(books, toc_features)` returns nine columns in memory:
+
+- `document_id`, `parent_asin`, `book_title`, `source`, `raw_position`, and `text`.
+- `numeric_only_text` and `repeated_text`, copied from TOC rows. They are missing
+  for book-level rows, where these TOC checks were not performed.
+- `document_version`, currently `documents-v1`.
+
+TOC IDs have the form `parent_asin:toc:raw_position`; book-level IDs use
+`parent_asin:features` or `parent_asin:description`. The table is ordered by
+book ID, then TOC position, then book-level text. Book titles remain metadata
+and are not prepended to the selected text. IDs identify source locations;
+the same ID can have different text in a later input snapshot.
+
+`prepare_documents(...)` adds `raw_source_sha256` and `toc_source_sha256` before
+saving, giving 11 columns. These record the two input files' identities. The
+pipeline verifies the TOC's recorded raw checksum and rebuilds the TOC in memory
+to reject missing, changed, or stale prepared rows. Both inputs are checked
+again before saving. Existing outputs and input paths are protected from
+overwrite; use another `--output` path for later experiments. Missing inputs
+raise an error and never trigger a download.
+
+[05_documents_preview.ipynb](../notebooks/05_documents_preview.ipynb) explains
+every column, follows a chosen or repeatable random book, reconciles the source
+and book totals, and rebuilds both preparation steps in memory. All six code
+cells ran successfully. All 150,496 rows and 11 columns match the current code,
+including values, data types, and order; identifiers are unique, every document
+has a known book and nonblank text, and all three saved files are unchanged.
+The full offline test suite passed (67 tests), including fallback selection,
+stable IDs, retained flags, source preservation, stale TOC rejection, and
+output-file protection.
+
+**Next:** Compare TOC-only retrieval with TOC plus the selected book-level text.
+Choose a model and its tokenizer, handle long documents according to its input
+limit, and evaluate ranked books against a small set of learning goals and
+relevance judgments. No vectors or retrieval scores have been produced yet.
 
 ## Evaluation design before choosing retrieval features
 
-The EDA notebooks remain descriptive. A separate candidate TOC feature dataset
-now exists and its `feature_text` column is selected for the first baseline.
+The EDA notebooks remain descriptive. Separate TOC and document datasets now
+implement the version 1 text choices for the first baseline.
 No train/test split, fitted transformation, resampling, embedding model, or
 ranking evaluation has been created. Retrieval evaluation still needs to
 establish whether these text rules help recommendations.
@@ -781,8 +854,8 @@ development/validation data for tuning. See
 Unresolved questions for a later step include numeric types and validation,
 the deduplication unit, missing descriptions, and TOC text/metadata quality.
 No rows have been deleted or missing values filled in the saved raw and
-prepared TOC files. The planned exclusion of empty text applies only to the
-future embedding input.
+prepared TOC files. Empty TOC text is omitted from the separate document table
+that will supply embedding input.
 
 Any later refresh should create a new raw file or record its date, query, row
 count, and checksum before replacing this snapshot.

@@ -136,3 +136,36 @@ to inspect the Amazon `description` and `features` columns in the same local
 snapshot. It shows a selectable book example, text coverage, overlap between
 the columns, and text lengths. Each section states its objective and conclusion.
 The notebook reads the raw file without changing it or creating processed data.
+
+## Build the document table
+
+Create the version 1 text documents from the existing raw books and prepared TOC:
+
+```sh
+uv run python -m bookpath.pipeline
+```
+
+The command reads `data/raw/books.parquet` and
+`data/processed/toc_features.parquet`, verifies that the TOC matches the raw
+snapshot and current preparation code, then saves a separate
+`data/processed/documents.parquet`. Both inputs must already exist. It never
+downloads data or overwrites an existing output; use `--input`, `--toc`, and
+`--output` to choose other paths.
+
+For the current snapshot, the output has **150,496 rows and 11 columns**:
+141,495 nonblank TOC items, 8,991 joined Amazon `features` texts, and 10 joined
+`description` fallbacks. A book can contribute multiple rows. Each row keeps
+its book ID, source, and a stable document ID. TOC rows also retain their
+original positions and numeric/repeated review flags. The flags are missing
+for book-level text because they were not assessed there. No text is truncated,
+and no embeddings are created.
+
+`build_documents(books, toc_features)` in `documents.py` handles text selection
+in memory. `prepare_documents(raw_path, toc_path, output_path)` in `pipeline.py`
+handles file checks, reads, and saving through `local_data.py`.
+
+Open [05_documents_preview.ipynb](notebooks/05_documents_preview.ipynb) and
+**Restart Kernel → Run All** to inspect a selectable book, reconcile totals,
+and compare the complete saved table against the preparation code. The column
+definitions and source mappings are explained in the notebook; results are
+recorded in [docs/data.md](docs/data.md).
