@@ -169,3 +169,10 @@ Open [05_documents_preview.ipynb](notebooks/05_documents_preview.ipynb) and
 and compare the complete saved table against the preparation code. The column
 definitions and source mappings are explained in the notebook; results are
 recorded in [docs/data.md](docs/data.md).
+
+## Compare retrieval methods
+
+[docs/metrics.md](docs/metrics.md) contains the benchmark results table: one row
+per evaluated method, with **nDCG@5, Recall@10, MRR, and Precision@5** as columns.
+It explains the proposed scoring rules and the shared queries and relevance
+labels needed before measuring results. Scores are currently unmeasured.

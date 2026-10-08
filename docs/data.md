@@ -840,6 +840,10 @@ No train/test split, fitted transformation, resampling, embedding model, or
 ranking evaluation has been created. Retrieval evaluation still needs to
 establish whether these text rules help recommendations.
 
+The comparison table and proposed scoring rules are in [metrics.md](metrics.md).
+It tracks nDCG@5, Recall@10, MRR, and Precision@5 for each evaluated method;
+no benchmark scores have been measured yet.
+
 The full saved catalog has been inspected, so it is development evidence, not
 an untouched test set. Before using these observations to choose modeling or
 preprocessing strategies, define the evaluation task and what is held out:
